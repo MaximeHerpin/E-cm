@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: a2bbf11581b742a419f36569cbf7b404
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: batiment2_level-1_floor
+    100004: batiment2_level-1_wall
+    100006: batiment2_level-2_floor
+    100008: batiment2_level-2_wall
+    100010: batiment2_level0_floor
+    100012: batiment2_level0_wall
+    100014: batiment2_level1_floor.001
+    100016: batiment2_level1_wall
+    100018: batiment2_level2_floor
+    100020: batiment2_level2_floor.001
+    100022: batiment2_level2_floor.002
+    100024: batiment2_level2_wall
+    100026: batiment2_level2_wall.001
+    100028: batiment2_level1_floor
+    100030: batiment2_level3_floor
+    100032: batiment2_level3_wall
+    100034: batiment2_level4_floor
+    400000: //RootNode
+    400002: batiment2_level-1_floor
+    400004: batiment2_level-1_wall
+    400006: batiment2_level-2_floor
+    400008: batiment2_level-2_wall
+    400010: batiment2_level0_floor
+    400012: batiment2_level0_wall
+    400014: batiment2_level1_floor.001
+    400016: batiment2_level1_wall
+    400018: batiment2_level2_floor
+    400020: batiment2_level2_floor.001
+    400022: batiment2_level2_floor.002
+    400024: batiment2_level2_wall
+    400026: batiment2_level2_wall.001
+    400028: batiment2_level1_floor
+    400030: batiment2_level3_floor
+    400032: batiment2_level3_wall
+    400034: batiment2_level4_floor
+    2100000: sol
+    2100002: mur
+    2300000: batiment2_level-1_floor
+    2300002: batiment2_level-1_wall
+    2300004: batiment2_level-2_floor
+    2300006: batiment2_level-2_wall
+    2300008: batiment2_level0_floor
+    2300010: batiment2_level0_wall
+    2300012: batiment2_level1_floor.001
+    2300014: batiment2_level1_wall
+    2300016: batiment2_level2_floor
+    2300018: batiment2_level2_floor.001
+    2300020: batiment2_level2_floor.002
+    2300022: batiment2_level2_wall
+    2300024: batiment2_level2_wall.001
+    2300026: batiment2_level1_floor
+    2300028: batiment2_level3_floor
+    2300030: batiment2_level3_wall
+    2300032: batiment2_level4_floor
+    3300000: batiment2_level-1_floor
+    3300002: batiment2_level-1_wall
+    3300004: batiment2_level-2_floor
+    3300006: batiment2_level-2_wall
+    3300008: batiment2_level0_floor
+    3300010: batiment2_level0_wall
+    3300012: batiment2_level1_floor.001
+    3300014: batiment2_level1_wall
+    3300016: batiment2_level2_floor
+    3300018: batiment2_level2_floor.001
+    3300020: batiment2_level2_floor.002
+    3300022: batiment2_level2_wall
+    3300024: batiment2_level2_wall.001
+    3300026: batiment2_level1_floor
+    3300028: batiment2_level3_floor
+    3300030: batiment2_level3_wall
+    3300032: batiment2_level4_floor
+    4300000: batiment2_level-2_floor
+    4300002: batiment2_level-1_floor
+    4300004: batiment2_level-1_wall
+    4300006: batiment2_level-2_wall
+    4300008: batiment2_level0_floor
+    4300010: batiment2_level0_wall
+    4300012: batiment2_level1_floor.001
+    4300014: batiment2_level1_wall
+    4300016: batiment2_level2_floor
+    4300018: batiment2_level2_floor.001
+    4300020: batiment2_level2_floor.002
+    4300022: batiment2_level2_wall
+    4300024: batiment2_level2_wall.001
+    4300026: batiment2_level1_floor
+    4300028: batiment2_level3_floor
+    4300030: batiment2_level4_floor
+    4300032: batiment2_level3_wall
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mur
+    second: {fileID: 2100000, guid: 5e30f9da76b42cd4ab23cc7ef16f9b52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sol
+    second: {fileID: 2100000, guid: 09bf402374c43b240875e82d5fd74906, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
