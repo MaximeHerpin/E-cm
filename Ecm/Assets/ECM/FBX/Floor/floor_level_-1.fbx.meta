@@ -1,22 +1,20 @@
 fileFormatVersion: 2
-guid: 600d9b652b71092409ec2551bb718e72
+guid: a0f83248c43ba304ab75d64496d4055e
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: goudron
+    2100000: floor_tiles
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Plane
-    4300002: floor
-    4300004: floor_level_0
+    4300000: floor_level-1
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: goudron
-    second: {fileID: 2100000, guid: 6a51e5d14c351d64f8e945440aa12cb3, type: 2}
+      name: floor_tiles
+    second: {fileID: 2100000, guid: 81d3eefe290278a40bad52fd3259ff77, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -55,7 +53,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0

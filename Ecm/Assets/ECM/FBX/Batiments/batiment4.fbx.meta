@@ -1,22 +1,58 @@
 fileFormatVersion: 2
-guid: 600d9b652b71092409ec2551bb718e72
+guid: 68931d611759c814786a030740511778
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: goudron
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Plane
-    4300002: floor
-    4300004: floor_level_0
+    100000: batiment2_level1_floor
+    100002: //RootNode
+    100004: batiment4_level-1_floor
+    100006: batiment4_level-1_wall.001
+    100008: batiment4_level-2_floor
+    100010: batiment4_level-2_wall
+    100012: batiment4_level0_floor
+    100014: batiment4_level0_wall
+    400000: batiment2_level1_floor
+    400002: //RootNode
+    400004: batiment4_level-1_floor
+    400006: batiment4_level-1_wall.001
+    400008: batiment4_level-2_floor
+    400010: batiment4_level-2_wall
+    400012: batiment4_level0_floor
+    400014: batiment4_level0_wall
+    2100000: sol
+    2100002: mur
+    2300000: batiment2_level1_floor
+    2300002: batiment4_level-1_floor
+    2300004: batiment4_level-1_wall.001
+    2300006: batiment4_level-2_floor
+    2300008: batiment4_level-2_wall
+    2300010: batiment4_level0_floor
+    2300012: batiment4_level0_wall
+    3300000: batiment2_level1_floor
+    3300002: batiment4_level-1_floor
+    3300004: batiment4_level-1_wall.001
+    3300006: batiment4_level-2_floor
+    3300008: batiment4_level-2_wall
+    3300010: batiment4_level0_floor
+    3300012: batiment4_level0_wall
+    4300000: batiment4_level-2_floor
+    4300002: batiment4_level-1_floor
+    4300004: batiment4_level0_floor
+    4300006: batiment2_level1_floor
+    4300008: batiment4_level-2_wall
+    4300010: batiment4_level-1_wall.001
+    4300012: batiment4_level0_wall
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: goudron
-    second: {fileID: 2100000, guid: 6a51e5d14c351d64f8e945440aa12cb3, type: 2}
+      name: mur
+    second: {fileID: 2100000, guid: 5e30f9da76b42cd4ab23cc7ef16f9b52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sol
+    second: {fileID: 2100000, guid: 09bf402374c43b240875e82d5fd74906, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -55,7 +91,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
