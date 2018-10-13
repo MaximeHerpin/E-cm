@@ -1,47 +1,52 @@
 fileFormatVersion: 2
-guid: 68931d611759c814786a030740511778
+guid: a6f426064e749994db95243c57e71ed9
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: batiment2_level1_floor
-    100002: //RootNode
-    100004: batiment4_level-1_floor
-    100006: batiment4_level-1_wall.001
-    100008: batiment4_level-2_floor
-    100010: batiment4_level-2_wall
-    100012: batiment4_level0_floor
-    100014: batiment4_level0_wall
-    400000: batiment2_level1_floor
-    400002: //RootNode
-    400004: batiment4_level-1_floor
-    400006: batiment4_level-1_wall.001
-    400008: batiment4_level-2_floor
-    400010: batiment4_level-2_wall
-    400012: batiment4_level0_floor
-    400014: batiment4_level0_wall
+    100000: //RootNode
+    100002: batiment6_level-1_floor
+    100004: batiment6_level-1_wall
+    100006: batiment6_level-1_wall.001
+    100008: batiment6_level-2_floor
+    100010: batiment6_level0_floor
+    100012: batiment6_level0_wall
+    100014: batiment6_level1_floor
+    100016: batiment6_level-2_wall
+    400000: //RootNode
+    400002: batiment6_level-1_floor
+    400004: batiment6_level-1_wall
+    400006: batiment6_level-1_wall.001
+    400008: batiment6_level-2_floor
+    400010: batiment6_level0_floor
+    400012: batiment6_level0_wall
+    400014: batiment6_level1_floor
+    400016: batiment6_level-2_wall
     2100000: sol
     2100002: mur
-    2300000: batiment2_level1_floor
-    2300002: batiment4_level-1_floor
-    2300004: batiment4_level-1_wall.001
-    2300006: batiment4_level-2_floor
-    2300008: batiment4_level-2_wall
-    2300010: batiment4_level0_floor
-    2300012: batiment4_level0_wall
-    3300000: batiment2_level1_floor
-    3300002: batiment4_level-1_floor
-    3300004: batiment4_level-1_wall.001
-    3300006: batiment4_level-2_floor
-    3300008: batiment4_level-2_wall
-    3300010: batiment4_level0_floor
-    3300012: batiment4_level0_wall
-    4300000: batiment4_level-2_floor
-    4300002: batiment4_level-1_floor
-    4300004: batiment4_level0_floor
-    4300006: batiment2_level1_floor
-    4300008: batiment4_level-2_wall
-    4300010: batiment4_level-1_wall.001
-    4300012: batiment4_level0_wall
+    2300000: batiment6_level-1_floor
+    2300002: batiment6_level-1_wall
+    2300004: batiment6_level-1_wall.001
+    2300006: batiment6_level-2_floor
+    2300008: batiment6_level0_floor
+    2300010: batiment6_level0_wall
+    2300012: batiment6_level1_floor
+    2300014: batiment6_level-2_wall
+    3300000: batiment6_level-1_floor
+    3300002: batiment6_level-1_wall
+    3300004: batiment6_level-1_wall.001
+    3300006: batiment6_level-2_floor
+    3300008: batiment6_level0_floor
+    3300010: batiment6_level0_wall
+    3300012: batiment6_level1_floor
+    3300014: batiment6_level-2_wall
+    4300000: batiment6_level-2_floor
+    4300002: batiment6_level-1_floor
+    4300004: batiment6_level0_floor
+    4300006: batiment6_level1_floor
+    4300008: batiment6_level-1_wall.001
+    4300010: batiment6_level-1_wall
+    4300012: batiment6_level0_wall
+    4300014: batiment6_level-2_wall
   externalObjects:
   - first:
       type: UnityEngine:Material
