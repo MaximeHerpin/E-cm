@@ -1,20 +1,33 @@
 fileFormatVersion: 2
-guid: a58452d01c8ad054db14bcb66307f981
+guid: c5d4083fe5cb753429b222bd93687215
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: fablab_level-2_floor
+    100004: fablab_level-2_walls
     400000: //RootNode
-    2100000: mur
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: floor_level-1_wall
+    400002: fablab_level-2_floor
+    400004: fablab_level-2_walls
+    2100000: sol
+    2100002: mur
+    2300000: fablab_level-2_floor
+    2300002: fablab_level-2_walls
+    3300000: fablab_level-2_floor
+    3300002: fablab_level-2_walls
+    4300000: fablab_level-2_floor
+    4300002: fablab_level-2_walls
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: mur
-    second: {fileID: 2100006, guid: ac92ee393791ebc4d88d0ddbfd5077a0, type: 3}
+    second: {fileID: 2100000, guid: 5e30f9da76b42cd4ab23cc7ef16f9b52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sol
+    second: {fileID: 2100000, guid: 09bf402374c43b240875e82d5fd74906, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -53,7 +66,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0

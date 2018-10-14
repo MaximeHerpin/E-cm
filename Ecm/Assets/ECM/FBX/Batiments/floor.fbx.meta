@@ -1,20 +1,49 @@
 fileFormatVersion: 2
-guid: a0f83248c43ba304ab75d64496d4055e
+guid: c510621f6e1d86f4e98148e6b24f3849
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: floor_level-1
+    100004: floor_level-1_rue_haute
+    100006: floor_level-1_wall
+    100008: floor_level_0
     400000: //RootNode
+    400002: floor_level-1
+    400004: floor_level-1_rue_haute
+    400006: floor_level-1_wall
+    400008: floor_level_0
     2100000: floor_tiles
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: floor_level-1
+    2100002: mur
+    2100004: goudron
+    2300000: floor_level-1
+    2300002: floor_level-1_rue_haute
+    2300004: floor_level-1_wall
+    2300006: floor_level_0
+    3300000: floor_level-1
+    3300002: floor_level-1_rue_haute
+    3300004: floor_level-1_wall
+    3300006: floor_level_0
+    4300000: floor_level-1_rue_haute
+    4300002: floor_level-1_wall
+    4300004: floor_level-1
+    4300006: floor_level_0
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: floor_tiles
     second: {fileID: 2100000, guid: 81d3eefe290278a40bad52fd3259ff77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: goudron
+    second: {fileID: 2100000, guid: 6a51e5d14c351d64f8e945440aa12cb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mur
+    second: {fileID: 2100000, guid: 5e30f9da76b42cd4ab23cc7ef16f9b52, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -53,7 +82,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0

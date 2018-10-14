@@ -59,7 +59,6 @@ public class CameraMovement : MonoBehaviour {
                 else
                 {
                     cameraComponent.fieldOfView = newZoomValue;
-                    print(newZoomValue);
                 }
                 currentZoom = newZoomValue;
             }
