@@ -1,34 +1,46 @@
 fileFormatVersion: 2
-guid: 26069043d1f569348b3df10df3e20934
+guid: 06d53ed8024027241bc5b0843e60158b
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: hangar_level-1_floor
-    100004: hangar_level-2_floor.001
-    100006: hangar_level-2_walls
-    100008: hangar_level-2_floor
+    100002: plot3_level-1_floor
+    100004: plot3_level-1_walls
+    100006: plot3_level-2_floor
+    100008: plot3_level-2_walls
+    100010: plot3_level0_floor
     400000: //RootNode
-    400002: hangar_level-1_floor
-    400004: hangar_level-2_floor.001
-    400006: hangar_level-2_walls
-    400008: hangar_level-2_floor
-    2100000: sol
-    2100002: sol_hangar
+    400002: plot3_level-1_floor
+    400004: plot3_level-1_walls
+    400006: plot3_level-2_floor
+    400008: plot3_level-2_walls
+    400010: plot3_level0_floor
+    2100000: sol_hangar
+    2100002: toit
     2100004: mur_hangar
-    2300000: hangar_level-1_floor
-    2300002: hangar_level-2_floor.001
-    2300004: hangar_level-2_walls
-    2300006: hangar_level-2_floor
-    3300000: hangar_level-1_floor
-    3300002: hangar_level-2_floor.001
-    3300004: hangar_level-2_walls
-    3300006: hangar_level-2_floor
-    4300000: hangar_level-2_floor.001
-    4300002: hangar_level-1_floor
-    4300004: hangar_level-2_walls
-    4300006: hangar_level-2_floor
+    2100006: sol
+    2100008: mur
+    2300000: plot3_level-1_floor
+    2300002: plot3_level-1_walls
+    2300004: plot3_level-2_floor
+    2300006: plot3_level-2_walls
+    2300008: plot3_level0_floor
+    3300000: plot3_level-1_floor
+    3300002: plot3_level-1_walls
+    3300004: plot3_level-2_floor
+    3300006: plot3_level-2_walls
+    3300008: plot3_level0_floor
+    4300000: plot3_level0_floor
+    4300002: plot3_level-1_walls
+    4300004: plot3_level-1_floor
+    4300006: plot3_level-2_floor
+    4300008: plot3_level-2_walls
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mur
+    second: {fileID: 2100000, guid: 5e30f9da76b42cd4ab23cc7ef16f9b52, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -44,6 +56,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: sol_hangar
     second: {fileID: 2100000, guid: 760945d9bda28db438ee596858a70183, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: toit
+    second: {fileID: 2100000, guid: c6818c96287d7da4db9d37841c6f3a53, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -5,8 +5,9 @@ using UnityEngine;
 public class VisibilityManager : MonoBehaviour {
 
     public static VisibilityManager instance = null;
-
-    public int level = 4; // curent level seen by the camera
+    public int maxLevel = 4;
+    public int minLevel = -2;
+    private int level = 4; // curent level seen by the camera
     private Dictionary<int, List<GameObject>> levelsDict; // Dictionary storring all GameObjects of each level
 
     void Awake()
@@ -44,9 +45,9 @@ public class VisibilityManager : MonoBehaviour {
 	
 	void Update () {
         int direction = 0;
-        if (Input.GetButtonDown("LevelUp"))
+        if (Input.GetButtonDown("LevelUp") && level < maxLevel)
             direction += 1;
-        if (Input.GetButtonDown("LevelDown"))
+        if (Input.GetButtonDown("LevelDown") && level > minLevel)
             direction -= 1;
 
         if (direction != 0)

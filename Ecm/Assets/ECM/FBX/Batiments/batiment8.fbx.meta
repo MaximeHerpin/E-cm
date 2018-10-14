@@ -11,6 +11,7 @@ ModelImporter:
     100010: batiment8_level0_floor
     100012: batiment8_level0_wall
     100014: batiment8_level1_floor
+    100016: batiment8_level-2_wall
     400000: batiment7_level-8_wall
     400002: //RootNode
     400004: batiment8_level-1_floor
@@ -19,8 +20,10 @@ ModelImporter:
     400010: batiment8_level0_floor
     400012: batiment8_level0_wall
     400014: batiment8_level1_floor
+    400016: batiment8_level-2_wall
     2100000: sol
     2100002: mur
+    2100004: toit
     2300000: batiment7_level-8_wall
     2300002: batiment8_level-1_floor
     2300004: batiment8_level-1_wall
@@ -28,6 +31,7 @@ ModelImporter:
     2300008: batiment8_level0_floor
     2300010: batiment8_level0_wall
     2300012: batiment8_level1_floor
+    2300014: batiment8_level-2_wall
     3300000: batiment7_level-8_wall
     3300002: batiment8_level-1_floor
     3300004: batiment8_level-1_wall
@@ -35,6 +39,7 @@ ModelImporter:
     3300008: batiment8_level0_floor
     3300010: batiment8_level0_wall
     3300012: batiment8_level1_floor
+    3300014: batiment8_level-2_wall
     4300000: batiment8_level-2_floor
     4300002: batiment7_level-8_wall
     4300004: batiment8_level-1_floor
@@ -42,6 +47,7 @@ ModelImporter:
     4300008: batiment8_level1_floor
     4300010: batiment8_level-1_wall
     4300012: batiment8_level0_wall
+    4300014: batiment8_level-2_wall
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -53,6 +59,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: sol
     second: {fileID: 2100000, guid: 09bf402374c43b240875e82d5fd74906, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: toit
+    second: {fileID: 2100000, guid: c6818c96287d7da4db9d37841c6f3a53, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
