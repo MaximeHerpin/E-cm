@@ -1,2 +1,2 @@
 # E-cm
-Rogue like game project taking place in Centrale marseille engineering shool.
+Rogue like game project made with unity, and taking place in Centrale Marseille engineering shool.
