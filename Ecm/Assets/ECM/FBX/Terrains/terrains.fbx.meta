@@ -7,21 +7,42 @@ ModelImporter:
     100002: terrain_2
     100004: terrain_3
     100006: //RootNode
+    100008: asphalt
+    100010: terrain_4
+    100012: terrain_5
     400000: terrain_1
     400002: terrain_2
     400004: terrain_3
     400006: //RootNode
+    400008: asphalt
+    400010: terrain_4
+    400012: terrain_5
     2100000: terrain
+    2100002: goudron
     2300000: terrain_1
     2300002: terrain_2
     2300004: terrain_3
+    2300006: asphalt
+    2300008: terrain_4
+    2300010: terrain_5
     3300000: terrain_1
     3300002: terrain_2
     3300004: terrain_3
+    3300006: asphalt
+    3300008: terrain_4
+    3300010: terrain_5
     4300000: terrain_3
     4300002: terrain_2
     4300004: terrain_1
+    4300006: asphalt
+    4300008: terrain_5
+    4300010: terrain_4
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: goudron
+    second: {fileID: 2100000, guid: 6a51e5d14c351d64f8e945440aa12cb3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
