@@ -33,6 +33,7 @@ ModelImporter:
     400026: batiment3_level4_floor
     2100000: sol
     2100002: mur
+    2100004: toit
     2300000: batiment3_level-1_floor
     2300002: batiment3_level-1_wall
     2300004: batiment3_level-2_floor
@@ -83,6 +84,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: sol
     second: {fileID: 2100000, guid: 09bf402374c43b240875e82d5fd74906, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: toit
+    second: {fileID: 2100000, guid: c6818c96287d7da4db9d37841c6f3a53, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

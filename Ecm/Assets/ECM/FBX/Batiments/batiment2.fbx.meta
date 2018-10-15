@@ -41,6 +41,7 @@ ModelImporter:
     400034: batiment2_level4_floor
     2100000: sol
     2100002: mur
+    2100004: toit
     2300000: batiment2_level-1_floor
     2300002: batiment2_level-1_wall
     2300004: batiment2_level-2_floor
