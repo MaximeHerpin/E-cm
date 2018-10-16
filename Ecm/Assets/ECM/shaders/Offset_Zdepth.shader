@@ -8,7 +8,7 @@
 	SubShader {
 		Tags { "RenderType"="Opaque" }
 		LOD 200
-		Offset -0.01, -1
+		Offset 0.01, -1
 		
 
 		CGPROGRAM
