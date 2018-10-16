@@ -80,6 +80,7 @@ ModelImporter:
     4300022: batiment1_level2_walls
     4300024: batiment1_level0_walls
     4300026: batiment1_level0_floor
+    2186277476908879412: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
