@@ -681,6 +681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLevel: 4
   minLevel: -2
+  level: 4
 --- !u!4 &124752197
 Transform:
   m_ObjectHideFlags: 0
@@ -3681,6 +3682,7 @@ MonoBehaviour:
   zoomMax: 50
   speed: 2
   zoomSpeed: 0.05
+  rotSpeed: 100
 --- !u!1 &540745598
 GameObject:
   m_ObjectHideFlags: 0

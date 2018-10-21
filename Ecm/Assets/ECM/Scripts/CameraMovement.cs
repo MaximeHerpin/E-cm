@@ -13,6 +13,8 @@ public class CameraMovement : MonoBehaviour {
     public float zoomMax = 15f;
     public float speed = 5f;
     public float zoomSpeed = 1f;
+    public float rotSpeed = 1f;
+
     // The gamer can change the speed of all the different axis
     Camera cameraComponent;
 
@@ -33,9 +35,8 @@ public class CameraMovement : MonoBehaviour {
 
         float forwardMotion = Input.GetAxis("CameraVertical");
         float sideMotion = Input.GetAxis("CameraHorizontal");
-        // We have set three new axis (CameraVertical, CameraHorizontal, CameraZoom) in Unity (Edit -> Project settings -> Input)
+        // We have set four new axis (CameraVertical, CameraHorizontal, CameraZoom) in Unity (Edit -> Project settings -> Input)
         transform.position += (up * forwardMotion + side * sideMotion) * Time.unscaledDeltaTime * speed * currentZoom;
-
 
         float zoom = Input.GetAxis("CameraZoom");
 
@@ -63,5 +64,22 @@ public class CameraMovement : MonoBehaviour {
                 currentZoom = newZoomValue;
             }
         }
+
+        float rotationMotion = Input.GetAxis("CameraRotation");
+        if(rotationMotion != 0)
+        {
+            float h = VisibilityManager.instance.level * 4;
+            float cx = transform.position.x;
+            float cy = transform.position.y;
+            float cz = transform.position.z;
+            Vector3 abc = transform.forward;
+            float t = (h - cy) / abc.y;
+            Vector3 rotationPoint = new Vector3(cx + t * abc.x, 0, cz + t * abc.z);
+            transform.RotateAround(rotationPoint , Vector3.up, rotSpeed * Time.deltaTime * rotationMotion);
+            side = transform.right;
+            up = Vector3.Cross(side, Vector3.up);
+        }
+
+        
     }
 }
