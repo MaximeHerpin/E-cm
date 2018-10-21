@@ -1,4 +1,5 @@
-﻿Shader "Custom/Offset_Zdepth" {
+﻿// Clic droit Create Shader
+Shader "Custom/Offset_Zdepth" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
@@ -8,7 +9,7 @@
 	SubShader {
 		Tags { "RenderType"="Opaque" }
 		LOD 200
-		Offset 0.01, -1
+		Offset 0.01, -1 // évite le z fighting
 		
 
 		CGPROGRAM
