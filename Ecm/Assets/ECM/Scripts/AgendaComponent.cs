@@ -8,9 +8,15 @@ public class AgendaComponent : MonoBehaviour {
     public bool auto_update = false; // set to false when the update is made trough the autonomous movement
     public bool FreeTime = false;
 
+
     void Start () {
-        agenda.Initialize();
-        currentEvent = agenda.NextEvent();
+        if (agenda == null)
+        {
+            Agenda[] agendas = Resources.LoadAll<Agenda>("Agendas");
+            agenda = agendas[Random.Range(0, agendas.Length)];
+        }
+
+        currentEvent = agenda.events.Peek();
         FreeTime = !currentEvent.HasBegun(TimeManager.instance.timeOfDay);
         if (auto_update)
             TimeManager.instance.OnQuarterUpdate += CheckAgenda;
@@ -18,13 +24,8 @@ public class AgendaComponent : MonoBehaviour {
 
     public void CheckAgenda()
     {
-        TimeOfDay timeOfDay = TimeManager.instance.timeOfDay;
-        if (currentEvent.IsFinished(timeOfDay))
-        {
-            currentEvent = agenda.NextEvent();            
-        }
-        FreeTime = !currentEvent.HasBegun(timeOfDay);
-
+        FreeTime = !agenda.events.Peek().HasBegun(TimeManager.instance.timeOfDay);
+        currentEvent = agenda.events.Peek();
     }
 
 	// Update is called once per frame

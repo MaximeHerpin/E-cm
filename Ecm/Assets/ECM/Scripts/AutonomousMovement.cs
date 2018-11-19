@@ -18,13 +18,13 @@ public class AutonomousMovement : MonoBehaviour {
         ag = GetComponent<AgendaComponent>();
         agent = GetComponent<NavMeshAgent>();
         TimeManager.instance.OnQuarterUpdate += CheckAgendaForDestination;
+        agent.speed *= (1 + GetComponent<Character>().physicalCondition)/2;
 	}
 
     void CheckAgendaForDestination()
     {
         ag.CheckAgenda(); // Update agenda before using it
-
-        Vector3 destination = ag.currentEvent.position;
+        Vector3 destination = ag.currentEvent.classroom.transform.position;
         if (destination != lastDestination && !ag.FreeTime) // If not in required position
         {
             if (!agent.pathPending) // Following conditions test if agent is moving, or tries to

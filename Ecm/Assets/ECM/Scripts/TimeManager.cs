@@ -16,9 +16,9 @@ public class TimeManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Time.timeScale = 1f;
+        Time.timeScale = 1;
         timeOfDay = new TimeOfDay(7, 59);
-        InvokeRepeating("UpdateTime", 5, 5); // UpdateTime will be called every 5 seconds (in game time)
+        InvokeRepeating("UpdateTime", 5, 20); // UpdateTime will be called every 5 seconds (in game time)
     }
 	
 
@@ -37,32 +37,34 @@ public class TimeManager : MonoBehaviour {
     {
         timeOfDay.Display();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("p"))
+        {
+            Time.timeScale *= 2;
+        }
+        if (Input.GetKeyDown("m"))
+        {
+            Time.timeScale /= 2;
+        }
+    }
 }
 
 [System.Serializable]
-public struct TimeOfDay
+public class TimeOfDay
 {
-    public int minutes; // Those  are public so they can be set in Editor
     public int hours;
-    private float floatingTime;
+    public int minutes; // Those  are public so they can be set in Editor
+    public static TimeOfDay FirstHour = new TimeOfDay(8, 0);
+    public static TimeOfDay LastHour = new TimeOfDay(18, 0);
 
     public TimeOfDay(int hours, int minutes)
     {
         this.minutes = minutes;
         this.hours = hours;
-        floatingTime = 0f;
     }
     
-    public void Add(float amount)
-    {
-        floatingTime += amount;
-        if (floatingTime > 1000)
-        {
-            AddOneMinute();
-            floatingTime = floatingTime - 1000;
-        }
-    }
-
     public void AddOneMinute()
     {
         minutes += 1;
@@ -109,6 +111,18 @@ public struct TimeOfDay
     public static bool operator <=(TimeOfDay t1, TimeOfDay t2)
     {
         return t2 >= t1;
+    }
+
+    public static TimeOfDay operator +(TimeOfDay t1, int minutes)
+    {
+        int resultMinutes = (t1.minutes + minutes % 60) % 60;
+        int resultHours = (t1.hours + minutes/60 + (t1.minutes + minutes % 60) / 60) % 24;
+        return new TimeOfDay(resultHours, resultMinutes);
+    }
+
+    public TimeOfDay Copy()
+    {
+        return new TimeOfDay(hours, minutes);
     }
 
 }
