@@ -21,7 +21,8 @@ GameObject:
   - component: {fileID: 4942938360822444}
   - component: {fileID: 33227637479718622}
   - component: {fileID: 23916345955009572}
-  m_Layer: 0
+  - component: {fileID: 114350338786738612}
+  m_Layer: 9
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +42,8 @@ GameObject:
   - component: {fileID: 114548235507422778}
   - component: {fileID: 114465641645309466}
   - component: {fileID: 114737718644405102}
-  m_Layer: 0
+  - component: {fileID: 114104182620287706}
+  m_Layer: 9
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,6 +119,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1162683055984396}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114104182620287706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410513516815838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 984f4c4c5f3bb1748a089b87ee79e22d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  detectionRadius: 5
+  updatePeriod: 100
+  lastRealNeighbour: 0
+--- !u!114 &114350338786738612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1162683055984396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f535ec8048a9364abc25aeb3daabe4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114465641645309466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomizeCharacterAtStart: 1
+  isChromozomeXX: 1
   realName: Bob
   physicalCondition: 1
   mood: 10
