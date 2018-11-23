@@ -6,10 +6,24 @@ using UnityEngine;
 [CustomEditor(typeof(Agenda))]
 public class AgendaInspector : Editor
 {
+    private void OnEnable()
+    {
+        Agenda ag = (Agenda)target;
+        //ag.events = new Queue<AgendaEvent>(ag.eventList);
+    }
+
+    private void Awake()
+    {
+        
+    }
+
 
     public override void OnInspectorGUI()
     {
         Agenda ag = (Agenda)target;
+        if (ag.events == null)
+            return;
+
         foreach(AgendaEvent ev in ag.events)
         {
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);

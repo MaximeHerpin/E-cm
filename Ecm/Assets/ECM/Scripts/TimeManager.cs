@@ -8,6 +8,7 @@ public class TimeManager : MonoBehaviour {
     public TimeOfDay timeOfDay;
     public delegate void Action();
     public event Action OnQuarterUpdate; // Will call event every 15 minutes (in game time)
+    public event Action On5MinutesUpdate; // // Will call event every 5 minutes (in game time)
 
     private void Awake()
     {
@@ -26,6 +27,12 @@ public class TimeManager : MonoBehaviour {
     {
         timeOfDay.AddOneMinute();
         DisplayTime();
+        if (timeOfDay.Is5Min())
+        {
+            if (On5MinutesUpdate != null)
+                On5MinutesUpdate();
+        }
+
         if (timeOfDay.IsQuarterHour()) // Will be true every 15 in game minutes
         {
             if(OnQuarterUpdate != null)
@@ -42,11 +49,29 @@ public class TimeManager : MonoBehaviour {
     {
         if (Input.GetKeyDown("p"))
         {
-            Time.timeScale *= 2;
+            if(Time.timeScale < 50)
+            {
+                Time.timeScale *= 2;
+            }
+            else
+            {
+                Time.timeScale = 100;
+            }
         }
         if (Input.GetKeyDown("m"))
         {
             Time.timeScale /= 2;
+        }
+
+        if (Input.GetKeyDown("o"))
+        {
+            for (int i=0; i<3; i++)
+            {
+                timeOfDay += 5;
+                On5MinutesUpdate();
+                DisplayTime();
+            }
+            OnQuarterUpdate();            
         }
     }
 }
@@ -94,6 +119,11 @@ public class TimeOfDay
         return minutes % 15 == 0;
     }
 
+    public bool Is5Min()
+    {
+        return minutes % 5 == 0;
+    }
+
     public static bool operator >=(TimeOfDay t1, TimeOfDay t2)
     {
         if (t1.hours < t2.hours)
@@ -119,6 +149,7 @@ public class TimeOfDay
         int resultHours = (t1.hours + minutes/60 + (t1.minutes + minutes % 60) / 60) % 24;
         return new TimeOfDay(resultHours, resultMinutes);
     }
+
 
     public TimeOfDay Copy()
     {

@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Building
   - room
+  - Canvas
+  - Food
+  - Coffee
+  - Toilet
   layers:
   - Default
   - TransparentFX

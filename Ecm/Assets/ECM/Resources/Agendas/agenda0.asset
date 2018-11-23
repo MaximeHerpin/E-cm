@@ -11,3 +11,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf507e7a390efc147b64627b8597462f, type: 3}
   m_Name: agenda0
   m_EditorClassIdentifier: 
+  eventList:
+  - startTime:
+      hours: 8
+      minutes: 30
+    endTime:
+      hours: 10
+      minutes: 0
+    description: yolo
+    location: salle_207
+    classroom: {fileID: 0}
+  - startTime:
+      hours: 10
+      minutes: 15
+    endTime:
+      hours: 11
+      minutes: 45
+    description: yolo
+    location: salle_200
+    classroom: {fileID: 0}
+  - startTime:
+      hours: 13
+      minutes: 30
+    endTime:
+      hours: 15
+      minutes: 30
+    description: yolo
+    location: salle_201
+    classroom: {fileID: 0}

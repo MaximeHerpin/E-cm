@@ -13,6 +13,7 @@ public class CameraMovement : MonoBehaviour {
     public float zoomMax = 15f;
     public float speed = 5f;
     public float zoomSpeed = 1f;
+    
     // The gamer can change the speed of all the different axis
     Camera cameraComponent;
 
@@ -48,7 +49,7 @@ public class CameraMovement : MonoBehaviour {
             }
             else
             {
-                newZoomValue = cameraComponent.fieldOfView * (1 + zoom * zoomSpeed);
+                newZoomValue = cameraComponent.fieldOfView * (1 + zoom * zoomSpeed * Time.unscaledDeltaTime);
             }
             if (zoomMin <= newZoomValue && newZoomValue <= zoomMax)
             {

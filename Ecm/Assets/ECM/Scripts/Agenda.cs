@@ -4,17 +4,22 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Agenda", menuName = "Custom/Agenda")]
 public class Agenda : ScriptableObject {
+    public AgendaEvent[] eventList; // Must keep an array of event since unity doesn't serialize queues
     public Queue<AgendaEvent> events;
 
     public void Initialize()
     {
+        if(events == null)
+        {
+            events = new Queue<AgendaEvent>(eventList);
+        }
         foreach (AgendaEvent ev in events)
         {
             ev.classroom = GameObject.Find(ev.location);
         }
     }
 
-    public static Queue<AgendaEvent> RandomDay()
+    public void RandomDay()
     {
         GameObject[] rooms = GameObject.FindGameObjectsWithTag("room");
         List<AgendaEvent> dayEvents = new List<AgendaEvent>();
@@ -45,17 +50,10 @@ public class Agenda : ScriptableObject {
             if (i == 1) // lunch
                 time = earlyAfternoon ? new TimeOfDay(13, 30) : new TimeOfDay(14, 0);
         }
-        return new Queue<AgendaEvent>(dayEvents);
+        eventList = dayEvents.ToArray();
+        events = new Queue<AgendaEvent>(dayEvents);
     }
-
-    private void OnEnable()
-    {
-        if (events == null)
-        {
-            events = RandomDay();            
-        }
-    }
-
+    
 }
 
 

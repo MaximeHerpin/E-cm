@@ -64,14 +64,24 @@ public class VisibilityManager : MonoBehaviour {
         {
             foreach (GameObject ob in levelsDict[level + 1])
             {
-                ob.SetActive(true);
+                //ob.SetActive(true);
+                MeshRenderer[] renderers = ob.GetComponentsInChildren<MeshRenderer>();
+                foreach (MeshRenderer rend in renderers)
+                {
+                    rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                }
             }
         }
         else if (direction == -1 && levelsDict.ContainsKey(level)) // hidding current level
         {
             foreach(GameObject ob in levelsDict[level])
             {
-                ob.SetActive(false);
+                //ob.SetActive(false);
+                MeshRenderer[] renderers = ob.GetComponentsInChildren<MeshRenderer>();
+                foreach (MeshRenderer rend in renderers)
+                {
+                    rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+                }
             }
         }
         level += direction;

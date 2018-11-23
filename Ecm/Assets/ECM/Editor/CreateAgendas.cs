@@ -28,6 +28,7 @@ public class CreateAgendas : ScriptableWizard
         for (int i=0; i<number; i++)
         {
             Agenda ag = ScriptableObject.CreateInstance<Agenda>();
+            ag.RandomDay();
             AssetDatabase.CreateAsset(ag, path + "/agenda" + i.ToString() + ".asset");
         }
         AssetDatabase.SaveAssets();

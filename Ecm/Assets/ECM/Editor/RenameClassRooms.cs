@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class RenameClassRooms : ScriptableWizard {
+public class RenameClassRooms {
 
 	[MenuItem("Tools/Rename rooms")]
     static void RenameClassRoomsWizzard()

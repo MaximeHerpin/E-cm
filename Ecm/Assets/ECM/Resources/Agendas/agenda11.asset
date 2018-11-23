@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf507e7a390efc147b64627b8597462f, type: 3}
+  m_Name: agenda11
+  m_EditorClassIdentifier: 
+  eventList:
+  - startTime:
+      hours: 8
+      minutes: 30
+    endTime:
+      hours: 10
+      minutes: 0
+    description: yolo
+    location: salle_228
+    classroom: {fileID: 0}
+  - startTime:
+      hours: 10
+      minutes: 15
+    endTime:
+      hours: 11
+      minutes: 45
+    description: yolo
+    location: salle_204
+    classroom: {fileID: 0}

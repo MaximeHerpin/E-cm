@@ -5,8 +5,6 @@ using UnityEngine;
 public class AgendaComponent : MonoBehaviour {
     public Agenda agenda;
     public AgendaEvent currentEvent;
-    public bool auto_update = false; // set to false when the update is made trough the autonomous movement
-    public bool FreeTime = false;
 
 
     void Start () {
@@ -17,15 +15,25 @@ public class AgendaComponent : MonoBehaviour {
         }
 
         currentEvent = agenda.events.Peek();
-        FreeTime = !currentEvent.HasBegun(TimeManager.instance.timeOfDay);
-        if (auto_update)
-            TimeManager.instance.OnQuarterUpdate += CheckAgenda;
 	}
 
-    public void CheckAgenda()
+    public bool IsCurrentEventOver()
     {
-        FreeTime = !agenda.events.Peek().HasBegun(TimeManager.instance.timeOfDay);
-        currentEvent = agenda.events.Peek();
+        if (agenda.events.Count == 0)
+            return true;
+        if(currentEvent != agenda.events.Peek())
+        {
+            currentEvent = agenda.events.Peek();
+            return true;
+        }
+        return false;
+    }
+
+    public bool HasCurrentEventBegun()
+    {
+        if (agenda.events.Count == 0)
+            return false;
+        return agenda.events.Peek().HasBegun(TimeManager.instance.timeOfDay);
     }
 
 	// Update is called once per frame
