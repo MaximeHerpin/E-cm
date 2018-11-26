@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ClassBreak : StateMachineBehaviour {
 
     Character character;
     AgendaComponent agenda;
     Animator anim;
+    NavMeshAgent nav;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         character = animator.gameObject.GetComponent<Character>();
         agenda = animator.GetComponent<AgendaComponent>();
         anim = animator;
+        nav = animator.gameObject.GetComponent<NavMeshAgent>();
 
         TimeManager.instance.OnQuarterUpdate += CheckIfBreakIsOver;
         if (character.NeedsToilet())
@@ -36,6 +40,12 @@ public class ClassBreak : StateMachineBehaviour {
             animator.SetInteger("NeedId", 2);
             return;
         }
+
+        Vector3 socialPlace = FindClosest(GameObject.FindGameObjectsWithTag("SocialPlace"), animator.transform.position).GetComponent<ClassRoom>().GetNextPosition();
+        nav.SetDestination(socialPlace);
+        nav.stoppingDistance = 8;
+        if (character.social > .5f)
+            animator.SetTrigger("Socialize");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -77,13 +87,19 @@ public class ClassBreak : StateMachineBehaviour {
         TimeManager.instance.OnQuarterUpdate -= CheckIfBreakIsOver;
     }
 
-    // OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-    //
-    //}
-
-    // OnStateIK is called right after Animator.OnAnimatorIK(). Code that sets up animation IK (inverse kinematics) should be implemented here.
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-    //
-    //}
+    private GameObject FindClosest(GameObject[] targets, Vector3 position)
+    {
+        float minDist = Mathf.Infinity;
+        int bestTarget = 0;
+        for (int i = 0; i < targets.Length; i++)
+        {
+            float newDist = Vector3.SqrMagnitude(position - targets[i].transform.position);
+            if (minDist > newDist)
+            {
+                bestTarget = i;
+                minDist = newDist;
+            }
+        }
+        return targets[bestTarget];
+    }
 }

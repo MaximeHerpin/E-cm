@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterManager : MonoBehaviour {
 
     public static CharacterManager instance;
+    public bool spawnCharacters = true;
     public float needsBuildupSpeed = 1f;
     public float friendshipThreshold = .5f;
     public GameObject characterPrefab;
@@ -17,7 +18,8 @@ public class CharacterManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        SpawnCharacters();
+        if (spawnCharacters)
+            SpawnCharacters();
         ComputeFriendships();
 	}
     

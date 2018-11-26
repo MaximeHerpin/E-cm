@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Character : MonoBehaviour {
     public string realName;
@@ -31,18 +32,21 @@ public class Character : MonoBehaviour {
         cafeineBuildup = 0;
         //friends = new List<Character>();
         TimeManager.instance.On5MinutesUpdate += UpdateNeeds;
-}
+        UpdateNavMeshAgentStats();
+    }
 
     public void RandomizeCharacter()
     {
         string[] nameList = Random.value < .5f ? femaleNames : maleNames;
         realName = nameList[Random.Range(0, nameList.Length - 1)];
-        physicalCondition = Random.value;
+        physicalCondition = (1+Random.value)/2;
         studious = Random.value;
         social = Random.value;
         toiletNeeds = 1 + Random.value*2;
         foodNeeds = .5f + Random.value;
         cafeineNeeds = Random.value < .5f ? 1000 : 0.5f + Random.value*2; // Some people don't need cafeine and some are addicts
+        UpdateNavMeshAgentStats();
+        RandomColor();
     }
 
     public void UpdateNeeds()
@@ -84,6 +88,23 @@ public class Character : MonoBehaviour {
         }
     }
 
+    public void RandomColor()
+    {
+        MaterialPropertyBlock propBlock = new MaterialPropertyBlock();
+        Renderer rend = GetComponentInChildren<Renderer>();
+
+        rend.GetPropertyBlock(propBlock);
+
+        propBlock.SetColor("_Color", new Color(physicalCondition, studious, social));
+        rend.SetPropertyBlock(propBlock);
+    }
+
+    private void UpdateNavMeshAgentStats()
+    {
+        NavMeshAgent nav = GetComponent<NavMeshAgent>();
+        if (nav != null)
+            nav.speed *= physicalCondition;
+    }
 }
 
 

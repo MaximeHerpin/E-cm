@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4942938360822444}
   - component: {fileID: 33227637479718622}
   - component: {fileID: 23916345955009572}
-  - component: {fileID: 114350338786738612}
   m_Layer: 9
   m_Name: Capsule
   m_TagString: Untagged
@@ -58,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1410513516815838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 102, y: -7, z: 140.5}
+  m_LocalPosition: {x: 106, y: -7, z: 140}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4942938360822444}
@@ -153,17 +152,6 @@ MonoBehaviour:
   detectionRadius: 5
   updatePeriod: 100
   lastRealNeighbour: 0
---- !u!114 &114350338786738612
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1162683055984396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f535ec8048a9364abc25aeb3daabe4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114465641645309466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -197,8 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6887e9f256974745aee564b707d3121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomizeCharacterAtStart: 1
-  realName: Bob
+  realName: Thomas
   mood: 10
   physicalCondition: 1
   studious: 1
@@ -209,6 +196,7 @@ MonoBehaviour:
   toiletBuildup: 0
   foodBuildup: 0
   cafeineBuildup: 0
+  friends: []
 --- !u!114 &114957379782701178
 MonoBehaviour:
   m_ObjectHideFlags: 1

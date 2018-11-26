@@ -13,6 +13,7 @@ public class MovementToNeed : StateMachineBehaviour {
     {
         need = animator.GetInteger("NeedId");
         agent = animator.gameObject.GetComponent<NavMeshAgent>();
+        agent.stoppingDistance = 3;
         Vector3 destination;
         Vector3 position = animator.transform.position;
         switch (need)

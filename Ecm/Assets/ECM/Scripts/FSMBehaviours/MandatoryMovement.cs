@@ -14,17 +14,9 @@ public class MandatoryMovement : StateMachineBehaviour {
         ag = animator.gameObject.GetComponent<AgendaComponent>();
         agent = animator.gameObject.GetComponent<NavMeshAgent>();
 
-        Vector3 destination = ag.currentEvent.classroom.transform.position;
-        if (!agent.pathPending) // Following conditions test if agent is moving, or tries to
-        {
-            if (agent.remainingDistance <= agent.stoppingDistance)
-            {
-                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-                {
-                    agent.SetDestination(destination); // change agent destination
-                }
-            }
-        }
+        Vector3 destination = ag.currentEvent.classroom.GetComponent<ClassRoom>().GetNextPosition();
+        agent.SetDestination(destination); // change agent destination
+        agent.stoppingDistance = 0;
         animator.ResetTrigger("DestinationReached");
     }
 
