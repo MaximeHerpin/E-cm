@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114104182620287706}
   - component: {fileID: 114957379782701178}
   - component: {fileID: 95216181967488248}
+  - component: {fileID: 114793619971188712}
   m_Layer: 9
   m_Name: Character
   m_TagString: Player
@@ -197,6 +198,31 @@ MonoBehaviour:
   foodBuildup: 0
   cafeineBuildup: 0
   friends: []
+--- !u!114 &114793619971188712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410513516815838}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3c57e3646ba074d8d6ecc747ef505f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FSM: {fileID: 11400000, guid: e4382991435ac094fac9806aec58fef4, type: 2}
+  state:
+    name: 
+    transitions: []
+    actionType: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    actionIndex: 0
+  states: []
+  trigger: 
 --- !u!114 &114957379782701178
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Name: FSM
   m_EditorClassIdentifier: 
   states: []
+  entryState: 0

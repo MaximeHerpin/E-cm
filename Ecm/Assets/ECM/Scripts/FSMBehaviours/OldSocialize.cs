@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Socialize : StateMachineBehaviour {
+public class OldSocialize : StateMachineBehaviour {
 
     Character character;
     AgendaComponent agenda;

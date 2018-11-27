@@ -43,7 +43,7 @@ public class ClassBreak : StateMachineBehaviour {
 
         Vector3 socialPlace = FindClosest(GameObject.FindGameObjectsWithTag("SocialPlace"), animator.transform.position).GetComponent<ClassRoom>().GetNextPosition();
         nav.SetDestination(socialPlace);
-        nav.stoppingDistance = 8;
+        //nav.stoppingDistance = 8;
         if (character.social > .5f)
             animator.SetTrigger("Socialize");
     }

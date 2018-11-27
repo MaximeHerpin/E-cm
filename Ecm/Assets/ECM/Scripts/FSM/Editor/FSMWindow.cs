@@ -1,25 +1,31 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 using FSM;
+using System.Reflection;
+using System.Linq;
 
-public class NodeEditor : EditorWindow
+public class FSMNodeEditor : EditorWindow
 {
 
     StateMachine machine;
     Color backgroundColor = new Color(.25f, .255f, .26f);
     Color inspectorColor = new Color(.8f, .8f, .8f, .8f);
     Color nodeColor = new Color(.8f, .8f, .8f);
+    Color entryNodeColor = Color.HSVToRGB(.6f, .5f, 1);
     bool IsMakingTransition = false;
     int activeNode = 0;
     int parametersWidth = 250;
     int selectedTransition = 0;
-    
+    bool deleteNode = false;
+    string[] actionTypesNames;
+    System.Type[] actionTypes;
+
+
 
     [MenuItem("Window/FSM editor")]
-    static void ShowEditor()
+    public static void ShowEditor()
     {
-        NodeEditor editor = EditorWindow.GetWindow<NodeEditor>();        
+        FSMNodeEditor editor = EditorWindow.GetWindow<FSMNodeEditor>();        
         editor.Init();
     }
 
@@ -30,10 +36,23 @@ public class NodeEditor : EditorWindow
         {
             machine = (StateMachine)selection[0];
         }
+
+        var subclassTypes = Assembly.GetAssembly(typeof(Action)).GetTypes().Where(t => t.IsSubclassOf(typeof(Action)));
+        
+        actionTypesNames = new string[subclassTypes.Count()];
+        actionTypes = new System.Type[subclassTypes.Count()];
+        int i = 0;
+        foreach (var subclass in subclassTypes)
+        {
+            actionTypesNames[i] = subclass.ToString();
+            actionTypes[i] = subclass;
+            i++;
+        }
     }
 
     void OnGUI()
     {
+
         GUI.color = backgroundColor;
         GUI.DrawTexture(new Rect(0, 0, position.width, position.height), EditorGUIUtility.whiteTexture);
 
@@ -66,13 +85,17 @@ public class NodeEditor : EditorWindow
                 LeftClick(e);
             }
         }
-
-
+        
         GUI.color = nodeColor;
         BeginWindows();
         for (int i = 0; i < machine.states.Count; i++)
         {
+            if (i == activeNode && deleteNode)
+                continue;
             State state = machine.states[i];
+            GUI.color = nodeColor;
+            if (i == machine.entryState)
+                GUI.color = entryNodeColor;
             state.rect = GUI.Window(i + 1, state.rect, DrawNodeWindow, state.name, GUI.skin.window);
             foreach (Transition trans in state.transitions)
             {
@@ -84,6 +107,20 @@ public class NodeEditor : EditorWindow
         GUI.Window(0, parametersRect, DrawNodeWindow, "Parameters");
         GUI.BringWindowToFront(0);
         EndWindows();
+
+        if (e.type == EventType.KeyDown && e.keyCode == KeyCode.Delete)
+        {
+            deleteNode = true;
+            Repaint();
+        }
+
+        if (deleteNode && e.type == EventType.Repaint)
+        {
+            machine.DeleteState(activeNode);
+            activeNode = 0;
+            deleteNode = false;
+        }
+
     }
     
     private void RightClick(Event e)
@@ -115,6 +152,7 @@ public class NodeEditor : EditorWindow
             if (state.rect.Contains(mousePos))
             {
                 activeNode = i;
+                selectedTransition = 0;
                 return;
             }
         }
@@ -124,6 +162,7 @@ public class NodeEditor : EditorWindow
     {
         Vector2 mousePos = (Vector2)pos;
         machine.AddState(mousePos);
+        Repaint();
     }
 
     private void AddTransition(object index)
@@ -137,7 +176,11 @@ public class NodeEditor : EditorWindow
     {
         if (id > 0)
         {
-            //EditorGUILayout.
+            machine.states[id - 1].name = EditorGUILayout.TextField(machine.states[id - 1].name);
+            if (GUILayout.Button("Entry State"))
+            {
+                machine.entryState = id - 1;
+            }
             GUI.DragWindow();
         }
         else
@@ -156,9 +199,9 @@ public class NodeEditor : EditorWindow
 
         string[] transitionTexts = new string[state.transitions.Count];
         for (int i = 0; i < state.transitions.Count; i++)
-            transitionTexts[i] = "transition " + i.ToString();
+            transitionTexts[i] = machine.states[state.transitions[i].destination].name;
         
-        GUILayout.SelectionGrid(selectedTransition, transitionTexts, 1);
+        selectedTransition = GUILayout.SelectionGrid(selectedTransition, transitionTexts, 1);
         if(state.transitions.Count > 0)
         {
             EditorGUI.BeginChangeCheck();
@@ -171,7 +214,22 @@ public class NodeEditor : EditorWindow
             }
             
         }
+        EditorGUI.BeginChangeCheck();
+        int actionIndex = EditorGUILayout.Popup(state.actionIndex, actionTypesNames);
+        if (EditorGUI.EndChangeCheck())
+        {
+            state.actionIndex = actionIndex;
+            Action action = (Action)System.Activator.CreateInstance(actionTypes[actionIndex]);
+            //state.action = action;
+            state.actionType = actionTypes[actionIndex].ToString();
+            Debug.Log(action);
+            
+            //Debug.Log(System.Type.GetType(ActionTypes[actionIndex]));
+            //state.action = GetInstance<Action>(ActionTypes[actionIndex]);
+        }
+
     }
+
 
     void DrawNodeCurve(Rect start, Rect end)
     {

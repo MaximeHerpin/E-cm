@@ -2,26 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using FSM;
 
-public class MandatoryMovement : StateMachineBehaviour {
+public class MandatoryMovement : Action {
 
     AgendaComponent ag;
     NavMeshAgent agent;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    override public void OnStateEnter(FSMComponent fsm)
     {
-        ag = animator.gameObject.GetComponent<AgendaComponent>();
-        agent = animator.gameObject.GetComponent<NavMeshAgent>();
+        ag = fsm.gameObject.GetComponent<AgendaComponent>();
+        agent = fsm.gameObject.GetComponent<NavMeshAgent>();
 
         Vector3 destination = ag.currentEvent.classroom.GetComponent<ClassRoom>().GetNextPosition();
         agent.SetDestination(destination); // change agent destination
         agent.stoppingDistance = 0;
-        animator.ResetTrigger("DestinationReached");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    override public void OnStateUpdate(FSMComponent fsm)
     {
         if (!agent.pathPending)
         {
@@ -29,14 +29,14 @@ public class MandatoryMovement : StateMachineBehaviour {
             {
                 if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 {
-                    animator.SetTrigger("DestinationReached");
+                    fsm.SetTrigger("DestinationReached");
                 }
             }
         }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    override public void OnStateExit(FSMComponent fsm)
     {
 
     }

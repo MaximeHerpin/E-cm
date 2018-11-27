@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MovementToNeed : StateMachineBehaviour {
+public class OldMovementToNeed : StateMachineBehaviour {
 
     int need;
     NavMeshAgent agent;

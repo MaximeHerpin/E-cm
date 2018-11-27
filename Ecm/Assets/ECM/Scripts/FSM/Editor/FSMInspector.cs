@@ -24,4 +24,17 @@ public class FSMInspector : Editor
         DrawDefaultInspector();
     }
 
+
+    [UnityEditor.Callbacks.OnOpenAsset(1)]
+    public static bool OnOpenAsset(int instanceID, int line)
+    {
+        if (Selection.activeObject as StateMachine != null)
+        {
+            FSMNodeEditor.ShowEditor();
+            return true; //catch open file
+        }
+
+        return false; // let unity open the file
+    }
 }
+

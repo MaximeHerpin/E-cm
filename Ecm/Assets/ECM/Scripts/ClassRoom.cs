@@ -8,6 +8,7 @@ public class ClassRoom: MonoBehaviour {
     public float density = .8f;
     public Vector3[] positions;
     public bool randomPositions = false;
+    public bool shuffle = true;
     private int currentPositionIndex;
 
 
@@ -67,7 +68,8 @@ public class ClassRoom: MonoBehaviour {
             }
         }
 
-        ShufflePositions();
+        if (shuffle)
+            ShufflePositions();
     }
     
     private void GeneratePositionsRandom()

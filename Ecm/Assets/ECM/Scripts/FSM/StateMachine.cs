@@ -9,6 +9,7 @@ namespace FSM // Finished State Machine
     public class StateMachine : ScriptableObject {
 
         public List<State> states;
+        public int entryState = 0;
 
         public StateMachine()
         {
@@ -19,6 +20,34 @@ namespace FSM // Finished State Machine
         {
             states.Add(new State(pos));
         }
+
+        public void DeleteState(int index)
+        {
+            states.RemoveAt(index);
+            if(entryState > index)
+            {
+                entryState -= 1;
+                if (entryState < 0)
+                    entryState = 0;
+            }
+            else if (entryState == index)
+            {
+                entryState = 0;
+            }
+
+            foreach (State state in states)
+            {
+                for (int i=0; i<state.transitions.Count; i++)
+                {
+                    if (state.transitions[i].destination == index)
+                    {
+                        state.transitions.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
+        }
+
     }
 
     [System.Serializable]
@@ -27,13 +56,15 @@ namespace FSM // Finished State Machine
         public string name;
         public List<Transition> transitions;
         public Action action;
-        public Rect rect;
+        public string actionType;
+        public Rect rect; // used for graph editor
+        public int actionIndex = 0; // used for graph editor
 
         public State(Vector2 position)
         {
             transitions = new List<Transition>();
-            rect = new Rect(position, new Vector2(100, 100));
-            name = "coucou";
+            rect = new Rect(position, new Vector2(150, 60));
+            name = "new state";
         }
 
         public State Transition(string trigger, State[] states)
@@ -52,16 +83,17 @@ namespace FSM // Finished State Machine
         {
             transitions.Add(new Transition(other, "defaultTrigger"));
         }
+
     }
 
-
+    [System.Serializable]
     public abstract class Action
     {
-        public abstract void OnEnter(FSMComponent fsm);
+        public abstract void OnStateEnter(FSMComponent fsm);
 
-        public abstract void OnUpdate(FSMComponent fsm);
+        public abstract void OnStateUpdate(FSMComponent fsm);
 
-        public abstract void OnLeave(FSMComponent fsm);
+        public abstract void OnStateExit(FSMComponent fsm);
     }
 
     [System.Serializable]
