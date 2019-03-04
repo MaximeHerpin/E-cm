@@ -4,16 +4,28 @@ using UnityEngine;
 
 namespace Stories
 {
+    [System.Serializable]
     public class Story
     {
         public bool isOver = false;
 
-        private StoryEvent[] events = null;
-        private int nextEventIndex = 0;
+        [SerializeField]
+        public StoryEvent[] events = null;
+        private int nextEventIndex;
         private StoryEvent currentEvent = null;
+
+        public Story(int eventCount=0)
+        {
+            events = new StoryEvent[eventCount];
+            nextEventIndex = 1;
+            if (eventCount > 0)
+                currentEvent = events[0];
+        }
 
         public void UpdateStory()
         {
+            if (currentEvent == null)
+                currentEvent = events[0];
             switch (currentEvent.status)
             {
                 case EventSatus.Happening:

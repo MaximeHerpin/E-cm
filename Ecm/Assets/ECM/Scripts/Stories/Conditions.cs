@@ -20,6 +20,8 @@ public class Conditions : MonoBehaviour {
 
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
+
+        conditions = new Dictionary<string, bool>();
     }
 
 }

@@ -1,0 +1,13 @@
+{
+  "Events": 
+  [
+    {
+      "Actors": [ "NouvelAmphi" ],
+      "Action": "Explode",
+      "TimeMin": [ 8, 5],
+      "TimeMax": [ 18, 5],
+      "Conditions": "",
+      "Consequences": []
+    }
+  ]
+}

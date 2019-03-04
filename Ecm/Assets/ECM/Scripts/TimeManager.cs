@@ -150,7 +150,6 @@ public class TimeOfDay
         return new TimeOfDay(resultHours, resultMinutes);
     }
 
-
     public TimeOfDay Copy()
     {
         return new TimeOfDay(hours, minutes);
