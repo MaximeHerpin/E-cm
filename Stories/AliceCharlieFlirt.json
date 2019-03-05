@@ -1,0 +1,23 @@
+[
+
+	{
+		"Players" : ["Alice"],
+		"Action" : "MoveTo",
+		"Parameters" : ["Gym"],
+		"TimeMin" : [9,0,0],
+		"TimeMax" : [9,0,5],
+		"Conditions" : [],
+		"Consequences" : []
+	}
+
+	{
+		"Players" : ["Alice", "Charlie"],
+		"Action" : "Flirt",
+		"Parameters" : [],
+		"TimeMin" : [9,0,0],
+		"TimeMax" : [9,0,15],
+		"Conditions" : [],
+		"Consequences" : [{"AliceCharlieFlirt" : true}]
+	}
+
+]

@@ -13,6 +13,7 @@ namespace Stories
         public override void OnEnter() // vérifier que les acteurs existent
         {
             Debug.Log("Exploding");
+            boomCount = 0;
         }
         public override void OnUpdate()
         {
@@ -26,6 +27,10 @@ namespace Stories
         public override void OnExit()
         {
             Debug.Log("Has exploded");
+            for (int i=0; i<actors.Length; i++)
+            {
+                GameObject.Destroy(actors[i]);
+            }
         }
     }
 }

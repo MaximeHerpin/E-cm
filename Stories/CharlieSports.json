@@ -1,0 +1,21 @@
+[
+	{
+		"Players" : ["Charlie"],
+		"Action" : "MoveTo",
+		"Parameters" : ["Gym"],
+		"TimeMin" : [8,0,0],
+		"TimeMax" : [8,0,5],
+		"Conditions" : [],
+		"Consequences" : []
+	}
+
+	{
+		"Players" : ["Charlie"],
+		"Action" : "DoSport",
+		"Parameters" : [],
+		"TimeMin" : [8,0,0],
+		"TimeMax" : [8,0,15],
+		"Conditions" : [],
+		"Consequences" : []
+	}
+]

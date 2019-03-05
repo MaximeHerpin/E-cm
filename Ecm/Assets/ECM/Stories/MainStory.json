@@ -4,7 +4,7 @@
     {
       "Actors": [ "NouvelAmphi" ],
       "Action": "Explode",
-      "TimeMin": [ 8, 5],
+      "TimeMin": [ 18, 0],
       "TimeMax": [ 18, 5],
       "Conditions": "",
       "Consequences": []

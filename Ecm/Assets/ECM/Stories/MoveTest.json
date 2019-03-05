@@ -1,0 +1,14 @@
+{
+  "Events": 
+  [
+    {
+      "Actors": [ "AAAa" ],
+      "Action": "Move",
+	  "Parameters" : ["TargetPosition"],
+      "TimeMin": [ 8, 5],
+      "TimeMax": [ 18, 5],
+      "Conditions": "A AND B OR ( C AND D )",
+      "Consequences": []
+    }
+  ]
+}

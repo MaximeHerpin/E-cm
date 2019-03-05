@@ -1,0 +1,21 @@
+[
+	{
+		"Players" : ["Bob", "Alice"],
+		"Action" : "meet",
+		"Parameters" : ["Plot2"],
+		"TimeMin" : [10,0,0],
+		"TimeMax" : [10,0,5],
+		"Conditions" : [],
+		"Consequences" : []
+	}
+
+	{
+		"Actors" : ["Bob", "Alice"],
+		"Action" : "Talk",
+		"Parameters" : ["BobAliceDiscussion.json"],
+		"TimeMin" : [10,0,0],
+		"TimeMax" : [10,0,15],
+		"Conditions" : [],
+		"Consequences" : []
+	}
+]

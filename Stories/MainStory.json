@@ -1,0 +1,11 @@
+[
+	{
+		"Players" : ["NouvelAmphi"],
+		"Action" : "Explode",
+		"TimeMin" : [18,0,0],
+		"TimeMax" : [18,0,5],
+		"Conditions" : [],
+		"Consequences" : []
+	}
+
+]

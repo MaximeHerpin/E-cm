@@ -16,7 +16,7 @@ namespace Stories
         {
             public string[] Actors;
             public string Action;
-            public string[] parameters;
+            public string[] Parameters;
             public int[] TimeMin;
             public int[] TimeMax;
             public string Conditions;
@@ -57,7 +57,7 @@ namespace Stories
                 string conditions = Jevent.Conditions;
                 string[] consequences = Jevent.Consequences;
                 GameObject[] actors = GetObjectsFromNames(Jevent.Actors);
-                EventAction action = GetAction(Jevent.Action, actors, Jevent.parameters);
+                EventAction action = GetAction(Jevent.Action, actors, Jevent.Parameters);
 
                 StoryEvent storyEvent = new StoryEvent(timeMin, timeMax, action, conditions, consequences);
                 story.events[i] = storyEvent;
@@ -83,6 +83,10 @@ namespace Stories
             {
                 case "Explode":
                     action = new Explode(actors);
+                    break;
+                case "Move":
+                    GameObject destination = GameObject.Find(parameters[0]);
+                    action = new Move(actors, destination);
                     break;
                 default:
                     Debug.LogError(string.Format("Action {0} does not exist", actionName));

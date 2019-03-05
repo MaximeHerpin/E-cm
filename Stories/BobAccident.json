@@ -1,0 +1,32 @@
+[
+	{
+		"Players" : ["Bob"],
+		"Action" : "MoveTo",
+		"Parameters" : ["Gym"],
+		"TimeMin" : [8,0,0],
+		"TimeMax" : [8,0,5],
+		"Conditions" : [],
+		"Consequences" : []
+	}
+
+	{
+		"Players" : ["Bob"],
+		"Action" : "DoSport",
+		"Parameters" : [],
+		"TimeMax" : [8,0,0],
+		"TimeMin" : [8,0,15],
+		"Conditions" : [],
+		"Consequences" : []
+	}
+
+	{
+		"Players" : ["Bob"],
+		"Action" : "Accident",
+		"Parameters" : [],
+		"TimeMin" : [9,0,0],
+		"TimeMax" : [9,0,30],
+		"Conditions" : [{"aliceCharlieFlirt" : true}],
+		"Consequences" : [{"BobDead" : true}, {"AlicePTSD" : true}]
+	}
+
+]
