@@ -1,11 +1,30 @@
 {
-  "Events": 
-  [
+  "Events": [
+    {
+      "Actors": [],
+      "Action": "SetTimeSpeed",
+      "Parameters": [ "1" ],
+      "TimeMin": [ 8, 10 ],
+      "TimeMax": [ 18, 5 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+
+    {
+      "Actors": ["MainCamera"],
+      "Action": "SlerpTransform",
+      "Parameters": [ "ExplosionViewTarget", "30" ],
+      "TimeMin": [ 8, 10 ],
+      "TimeMax": [ 18, 5 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+
     {
       "Actors": [ "NouvelAmphi" ],
       "Action": "Explode",
-      "TimeMin": [ 18, 0],
-      "TimeMax": [ 18, 5],
+      "TimeMin": [ 8, 0 ],
+      "TimeMax": [ 18, 5 ],
       "Conditions": "",
       "Consequences": []
     }

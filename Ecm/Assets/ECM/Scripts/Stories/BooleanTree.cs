@@ -185,6 +185,7 @@ namespace Stories
                 else
                 {
                     node = new LeafNode(word);
+                    Conditions.instance.conditions[word] = false;
                 }
                 nodes.Push(node);
             }

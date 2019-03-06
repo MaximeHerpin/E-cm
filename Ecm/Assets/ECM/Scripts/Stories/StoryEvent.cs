@@ -50,12 +50,9 @@ namespace Stories
         public void CheckConditions()
         {
             TimeOfDay timeOfDay = TimeManager.instance.timeOfDay;
-            //Debug.Log(timeMin <= timeOfDay);
-            if (timeMin <= timeOfDay && timeOfDay <= timeMax)
+            if (timeMin <= timeOfDay && timeOfDay <= timeMax && conditions.Eval())
             {
-                Debug.Log("Time");
-                if (conditions.Eval())
-                    status = EventSatus.Happening; // all conditions are fullfilled, change status
+                status = EventSatus.Happening; // all conditions are fullfilled, change status
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour {
 
@@ -9,6 +10,10 @@ public class TimeManager : MonoBehaviour {
     public delegate void Action();
     public event Action OnQuarterUpdate; // Will call event every 15 minutes (in game time)
     public event Action On5MinutesUpdate; // // Will call event every 5 minutes (in game time)
+
+    public Text clockUi;
+    public Text timeSpeedUi;
+    public bool displayTimeInConsole = false;
 
     private void Awake()
     {
@@ -42,25 +47,28 @@ public class TimeManager : MonoBehaviour {
 
     public void DisplayTime()
     {
-        timeOfDay.Display();
+        if (displayTimeInConsole)
+            timeOfDay.Display();
+        if (clockUi != null)
+            clockUi.text = timeOfDay.ToString();
+    }
+
+    public void SetTimeScale(float timeScale)
+    {
+        Time.timeScale = Mathf.Min(100f, Mathf.Max(0.25f, timeScale));
+        if (timeSpeedUi != null)
+            timeSpeedUi.text = string.Format("x{0}", Time.timeScale);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown("p"))
         {
-            if(Time.timeScale < 50)
-            {
-                Time.timeScale *= 2;
-            }
-            else
-            {
-                Time.timeScale = 100;
-            }
+           SetTimeScale(Time.timeScale * 2);
         }
         if (Input.GetKeyDown("m"))
         {
-            Time.timeScale /= 2;
+            SetTimeScale(Time.timeScale / 2);
         }
 
         if (Input.GetKeyDown("o"))
@@ -104,14 +112,13 @@ public class TimeOfDay
 
     public void Display()
     {
-        string text = "";
-        if (hours < 10)
-            text += "0";
-        text += hours.ToString() + ":";
-        if (minutes < 10)
-            text += "0";
-        text += minutes.ToString();        
-        Debug.Log(text);
+        
+        Debug.Log(ToString());
+    }
+
+    public override string ToString()
+    {
+        return string.Format("{0:00}:{1:00}", hours, minutes);
     }
 
     public bool IsQuarterHour()

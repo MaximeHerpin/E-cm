@@ -30,7 +30,7 @@ public class AgendaManager : MonoBehaviour {
         foreach (Agenda ag in agendas)
         {
             TimeOfDay timeOfDay = TimeManager.instance.timeOfDay;
-            if (ag.events.Peek().IsFinished(timeOfDay))
+            if (ag.events.Count > 0 && ag.events.Peek().IsFinished(timeOfDay))
             {
                 ag.events.Dequeue();
             }

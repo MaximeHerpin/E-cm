@@ -24,4 +24,5 @@ public class Conditions : MonoBehaviour {
         conditions = new Dictionary<string, bool>();
     }
 
+
 }

@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using UnityEngine;
 
@@ -45,8 +47,16 @@ namespace Stories
 
         public static Story JsonToStory(string pathToJson)
         {
+            JsonStory Jstory = null;
             string dataAsJson = File.ReadAllText(pathToJson);
-            JsonStory Jstory = JsonUtility.FromJson<JsonStory>(dataAsJson);
+            try
+            {
+                Jstory = JsonUtility.FromJson<JsonStory>(dataAsJson);
+            }
+            catch (ArgumentException)
+            {
+                Debug.LogError(string.Format("Invalid Json file :{0}", Path.GetFileName(pathToJson)));
+            }
 
             Story story = new Story(Jstory.Events.Length);
             for (int i=0; i<Jstory.Events.Length; i++)
@@ -82,11 +92,22 @@ namespace Stories
             switch (actionName)
             {
                 case "Explode":
-                    action = new Explode(actors);
+                    action = new ExplodeAction(actors);
                     break;
                 case "Move":
                     GameObject destination = GameObject.Find(parameters[0]);
-                    action = new Move(actors, destination);
+                    action = new MoveAction(actors, destination);
+                    break;
+                case "SetTimeSpeed":
+                    int timeSpeed = 1;
+                    if (!Int32.TryParse(parameters[0], out timeSpeed))
+                        Debug.LogError(string.Format("parameter can't be parsed into int for action {0}", actionName));
+                    action = new SetTimeSpeedAction(timeSpeed);
+                    break;
+                case "SlerpTransform":
+                    Transform target = GameObject.Find(parameters[0]).transform;
+                    float duration = float.Parse(parameters[1], CultureInfo.InvariantCulture.NumberFormat);
+                    action = new SlerpTransformAction(actors, target, duration);
                     break;
                 default:
                     Debug.LogError(string.Format("Action {0} does not exist", actionName));

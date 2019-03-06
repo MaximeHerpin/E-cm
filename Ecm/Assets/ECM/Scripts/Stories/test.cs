@@ -10,10 +10,7 @@ public class test : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        string path = Application.dataPath + "/unityTest.json";
-        string dataAsJson = File.ReadAllText(path);
-        JsonStory t = JsonUtility.FromJson<JsonStory>(dataAsJson);
-        Debug.Log(t.Events[0].Actors[0]);
+        Conditions.instance.conditions["test"] = true;
     }
 	
 	// Update is called once per frame
@@ -22,14 +19,3 @@ public class test : MonoBehaviour {
 	}
 }
 
-[System.Serializable]
-public struct MyObject
-{
-    [System.Serializable]
-    public struct ArrayEntry
-    {
-        public int test;
-    }
-
-    public ArrayEntry[] Items;
-}
