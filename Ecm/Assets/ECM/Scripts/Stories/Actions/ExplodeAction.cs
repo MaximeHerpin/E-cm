@@ -29,7 +29,8 @@ namespace Stories
             Debug.Log("Has exploded");
             for (int i=0; i<actors.Length; i++)
             {
-                GameObject.Destroy(actors[i]);
+                //GameObject.Destroy(actors[i]);
+                actors[i].SetActive(false);
             }
         }
     }

@@ -89,6 +89,7 @@ namespace Stories
         private static EventAction GetAction(string actionName, GameObject[] actors, string[] parameters)
         {
             EventAction action = null;
+            float duration;
             switch (actionName)
             {
                 case "Explode":
@@ -106,9 +107,14 @@ namespace Stories
                     break;
                 case "SlerpTransform":
                     Transform target = GameObject.Find(parameters[0]).transform;
-                    float duration = float.Parse(parameters[1], CultureInfo.InvariantCulture.NumberFormat);
+                    duration = float.Parse(parameters[1], CultureInfo.InvariantCulture.NumberFormat);
                     action = new SlerpTransformAction(actors, target, duration);
                     break;
+                case "Wait":
+                    duration = float.Parse(parameters[0], CultureInfo.InvariantCulture.NumberFormat);
+                    action = new WaitAction(duration);
+                    break;
+
                 default:
                     Debug.LogError(string.Format("Action {0} does not exist", actionName));
                     break;
