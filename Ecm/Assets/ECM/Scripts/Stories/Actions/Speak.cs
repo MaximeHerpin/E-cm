@@ -5,21 +5,36 @@ using UnityEngine;
 
 namespace Stories
 {
-    public class Speak : EventAction {
+    public class SpeakAction : EventAction {
 
-        private Dialogue dialogue; 
-            
-        public Speak(GameObject[] actors, Dialogue dialogue) : base(actors)
+        public SpeakAction(GameObject[] actors) : base(actors)
         {
-            this.dialogue = dialogue;
         }
         public override void OnEnter() // vérifier que les acteurs existent
         {
-            Debug.Log(dialogue);
+            string[] interlocutors = new string[actors.Length - 1];
+            for (int i=0; i<actors.Length; i++)
+            {
+                Character character = actors[i].GetComponent<Character>();
+                if (character != null)
+                {
+                    int index = 0;
+                    for (int j=0; j<actors.Length; j++)
+                    {
+                        if (j != i)
+                        {
+                            interlocutors[index] = actors[j].name;
+                            index++;
+                        }
+                    }
+                    string message = string.Format("Spoke with {0}", string.Join(",", interlocutors));
+                    character.AddDiaryEntry(message);
+                }
+            }
         }
         public override void OnUpdate()
         {
-
+            status = ActionStatus.Exit;
         }
     }
 

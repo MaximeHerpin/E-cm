@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour {
@@ -8,9 +9,8 @@ public class TimeManager : MonoBehaviour {
     public static TimeManager instance;
     public TimeOfDay timeOfDay;
     public delegate void Action();
-    public event Action OnQuarterUpdate; // Will call event every 15 minutes (in game time)
     public event Action On5MinutesUpdate; // // Will call event every 5 minutes (in game time)
-
+    public UnityEvent OnQuarterUpdate = new UnityEvent();
     public Text clockUi;
     public Text timeSpeedUi;
     public bool displayTimeInConsole = false;
@@ -40,8 +40,7 @@ public class TimeManager : MonoBehaviour {
 
         if (timeOfDay.IsQuarterHour()) // Will be true every 15 in game minutes
         {
-            if(OnQuarterUpdate != null)
-                OnQuarterUpdate();
+            OnQuarterUpdate.Invoke();
         }
     }
 
@@ -68,7 +67,8 @@ public class TimeManager : MonoBehaviour {
         }
         if (Input.GetKeyDown("m"))
         {
-            SetTimeScale(Time.timeScale / 2);
+            float scale = Time.timeScale == 100 ? 64 : Time.timeScale / 2;
+            SetTimeScale(scale);
         }
 
         if (Input.GetKeyDown("o"))
@@ -79,7 +79,7 @@ public class TimeManager : MonoBehaviour {
                 On5MinutesUpdate();
                 DisplayTime();
             }
-            OnQuarterUpdate();            
+            OnQuarterUpdate.Invoke();            
         }
     }
 }

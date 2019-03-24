@@ -20,7 +20,6 @@ namespace Stories
             Vector3 destinationPosition = destination.transform.position;
             foreach (GameObject actor in actors)
             {
-                Debug.Log("Start Moving");
                 agent = actor.GetComponent<NavMeshAgent>();
                 if (agent == null)
                 {
@@ -28,7 +27,7 @@ namespace Stories
                     return;
                 }
                 agent.ResetPath();
-                agent.SetDestination(destinationPosition);
+                agent.SetDestination(destinationPosition);                
             }
         }
 
@@ -48,11 +47,13 @@ namespace Stories
 
         public override void OnExit()
         {
-            Debug.Log("Stop");
             foreach (GameObject actor in actors)
             {
                 NavMeshAgent agent = actor.GetComponent<NavMeshAgent>();
                 agent.ResetPath();
+                Character character = actor.GetComponent<Character>();
+                if (character != null)
+                    character.AddDiaryEntry(string.Format("Went to {0}", destination.name));
             }
         }
     }

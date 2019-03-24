@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraMovement : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class CameraMovement : MonoBehaviour {
     public float zoomMin = 5f;
     public float zoomMax = 15f;
     public float speed = 5f;
+    public float mouseSensitivity = 5f;
     public float zoomSpeed = 1f;
     
     // The gamer can change the speed of all the different axis
@@ -32,13 +34,19 @@ public class CameraMovement : MonoBehaviour {
         Vector3 move = Vector3.zero;
         // To be sure that Vector3 is a vector of zeros
 
-        float forwardMotion = Input.GetAxis("CameraVertical");
-        float sideMotion = Input.GetAxis("CameraHorizontal");
+        float canUseMouse = EventSystem.current.IsPointerOverGameObject() ? 0 : 1;
+        float mouseMovement = Input.GetMouseButton(1) ? mouseSensitivity * canUseMouse : 0;
+
+        float forwardMotion = Input.GetAxis("CameraVertical") - Input.GetAxis("Mouse Y") * mouseMovement;
+        float sideMotion = Input.GetAxis("CameraHorizontal") - Input.GetAxis("Mouse X") * mouseMovement;
+
+
+
         // We have set three new axis (CameraVertical, CameraHorizontal, CameraZoom) in Unity (Edit -> Project settings -> Input)
         transform.position += (up * forwardMotion + side * sideMotion) * Time.unscaledDeltaTime * speed * currentZoom;
 
 
-        float zoom = Input.GetAxis("CameraZoom");
+        float zoom = Input.GetAxis("CameraZoom") - Input.GetAxis("Mouse ScrollWheel") * mouseSensitivity * 40 * canUseMouse;
 
         if (zoom != 0) 
         {

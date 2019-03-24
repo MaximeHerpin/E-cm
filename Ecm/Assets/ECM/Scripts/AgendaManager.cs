@@ -14,7 +14,7 @@ public class AgendaManager : MonoBehaviour {
     }
 
     void Start () {
-        TimeManager.instance.OnQuarterUpdate += CheckAgendas;
+        TimeManager.instance.OnQuarterUpdate.AddListener(CheckAgendas);
         foreach (Agenda ag in agendas)
         {
             ag.Initialize();
