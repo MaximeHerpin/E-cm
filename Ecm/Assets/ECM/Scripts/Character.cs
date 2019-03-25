@@ -4,18 +4,22 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Character : MonoBehaviour {
+    [HideInInspector]
     public bool isSelected = false;
+    [HideInInspector]
     public bool isHighlighted = false;
     public Canvas CharacterUi;
     public DiaryController spawnedUi;
     private Queue<DiaryEntry> diary;
 
     public string realName;
+    public CharacterJob job = CharacterJob.Student;
     public Mood mood;
 
     public float physicalCondition = 1f; // Will influence speed, activities, ect
     public float studious = 1; // How serious in studies
     public float social = 1; // Qualifies interactions
+    public float sqrDetectionRadius = 36f;
 
     public float toiletNeeds = 1;
     public float foodNeeds = 1;
@@ -39,11 +43,14 @@ public class Character : MonoBehaviour {
         TimeManager.instance.On5MinutesUpdate += UpdateNeeds;
         UpdateNavMeshAgentStats();
         diary = new Queue<DiaryEntry>();
+        sqrDetectionRadius = Mathf.Pow(GetComponent<DetectionComponent>().detectionRadius, 2);
+
     }
 
-    public void RandomizeCharacter(string name)
+    public void RandomizeCharacter(string name, CharacterJob job = CharacterJob.Student)
     {
         realName = name;
+        gameObject.name = realName;
         physicalCondition = (1+Random.value)/2;
         studious = Random.value;
         social = Random.value;
@@ -52,6 +59,7 @@ public class Character : MonoBehaviour {
         cafeineNeeds = Random.value < .5f ? 1000 : 0.5f + Random.value*2; // Some people don't need cafeine and some are addicts
         UpdateNavMeshAgentStats();
         RandomColor();
+        this.job = job;
     }
 
     public void UpdateNeeds()
@@ -120,7 +128,7 @@ public class Character : MonoBehaviour {
         spawnedUi = Instantiate(CharacterUi).GetComponent<DiaryController>();
         spawnedUi.transform.GetChild(0).position = pos;
         spawnedUi.AddEntries(diary);
-        spawnedUi.UpdateNameAndStatus(realName, "student");
+        spawnedUi.UpdateNameAndStatus(realName, job.ToString());
     
     }
 
@@ -167,3 +175,5 @@ public class Character : MonoBehaviour {
 
 
 public enum Mood {Calm, Happy, Flirty, Tired, Bored, Depressed, Sad, Angry, Hungry, Thirsty, Neutral}
+
+public enum CharacterJob { Student, Professor, Administration, Worker}

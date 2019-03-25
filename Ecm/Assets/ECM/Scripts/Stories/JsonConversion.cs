@@ -83,6 +83,8 @@ namespace Stories
             for (int i = 0; i < names.Length; i++)
             {
                 result[i] = GameObject.Find(names[i]);
+                if (result[i] == null)
+                    Debug.LogError(string.Format("GameObject {0} was not found, check spelling", names[i]));
             }
             return result;
         }
@@ -91,6 +93,7 @@ namespace Stories
         {
             EventAction action = null;
             float duration;
+            GameObject target;
             switch (actionName)
             {
                 case "Explode":
@@ -103,7 +106,7 @@ namespace Stories
                     action = new MoveAction(actors, destination);
                     break;
                 case "Interact":
-                    GameObject target = GameObject.Find(parameters[0]);
+                    target = GameObject.Find(parameters[0]);
                     if (target == null)
                         Debug.LogError(string.Format("can't interact with object, {0} is not Found", parameters[0]));
                     action = new InteractAction(actors, target);
@@ -129,6 +132,11 @@ namespace Stories
                     break;
                 case "Speak":
                     action = new SpeakAction(actors);
+                    break;
+                case "See":
+                    target = GameObject.Find(parameters[0]);
+                    string reactionMessage = parameters[1];
+                    action = new SeeAction(actors, target, reactionMessage);
                     break;
                 default:
                     Debug.LogError(string.Format("Action {0} does not exist", actionName));
@@ -173,6 +181,6 @@ public class JsonNames
     public string GetNextFemale()
     {
         femalesIndex++;
-        return males[femalesIndex];
+        return females[femalesIndex];
     }
 }

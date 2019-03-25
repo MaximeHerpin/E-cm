@@ -37,8 +37,8 @@ public class CameraMovement : MonoBehaviour {
         float canUseMouse = EventSystem.current.IsPointerOverGameObject() ? 0 : 1;
         float mouseMovement = Input.GetMouseButton(1) ? mouseSensitivity * canUseMouse : 0;
 
-        float forwardMotion = Input.GetAxis("CameraVertical") - Input.GetAxis("Mouse Y") * mouseMovement;
-        float sideMotion = Input.GetAxis("CameraHorizontal") - Input.GetAxis("Mouse X") * mouseMovement;
+        float forwardMotion = Input.GetAxis("CameraVertical") - Input.GetAxis("Mouse Y") * mouseMovement / Time.unscaledDeltaTime / 100;
+        float sideMotion = Input.GetAxis("CameraHorizontal") - Input.GetAxis("Mouse X") * mouseMovement / Time.unscaledDeltaTime / 100;
 
 
 

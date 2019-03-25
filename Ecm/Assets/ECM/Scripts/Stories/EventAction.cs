@@ -17,7 +17,17 @@ namespace Stories
             status = ActionStatus.Start;
         }
 
-        virtual public void OnEnter() {}
+        virtual public void OnEnter()
+        {
+            foreach (GameObject actor in actors)
+            {
+                Animator anim = actor.GetComponent<Animator>();
+                if (anim != null)
+                {
+                    anim.SetBool("StoryEvent", true);
+                }
+            }
+        }
 
         virtual public void OnUpdate(){}
 

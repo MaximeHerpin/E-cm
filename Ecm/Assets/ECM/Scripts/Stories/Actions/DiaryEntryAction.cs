@@ -15,6 +15,7 @@ namespace Stories
 
         public override void OnEnter()
         {
+            base.OnEnter();
             foreach (GameObject actor in actors)
             {
                 Character character = actor.GetComponent<Character>();

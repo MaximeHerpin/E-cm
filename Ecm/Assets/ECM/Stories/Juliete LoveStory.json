@@ -1,0 +1,67 @@
+{
+  "Events": [
+    {
+      "Actors": [ "juliette" ],
+      "Action": "Move",
+      "Parameters": [ "Gym" ],
+      "TimeMin": [ 10, 0 ],
+      "TimeMax": [ 11, 10 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "juliette" ],
+      "Action": "LogEntry",
+      "Parameters": [ "exerciced at the gym" ],
+      "TimeMin": [ 10, 0 ],
+      "TimeMax": [ 11, 15 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "juliette" ],
+      "Action": "See",
+      "Parameters": [ "M.Piperez", "Saw M.Piperez bench some impressive weights, what a strong man !" ],
+      "TimeMin": [ 10, 0 ],
+      "TimeMax": [ 11, 20 ],
+      "Conditions": "PiperezIsStrong",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "juliette" ],
+      "Action": "LogEntry",
+      "Parameters": [ "My romeo isn't that strong" ],
+      "TimeMin": [ 10, 0 ],
+      "TimeMax": [ 11, 20 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "juliette", "romeo" ],
+      "Action": "Move",
+      "Parameters": [ "Bench" ],
+      "TimeMin": [ 12, 0 ],
+      "TimeMax": [ 12, 10 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "juliette", "romeo" ],
+      "Action": "Speak",
+      "Parameters": [],
+      "TimeMin": [ 12, 0 ],
+      "TimeMax": [ 12, 10 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "romeo" ],
+      "Action": "LogEntry",
+      "Parameters": [ "AARGH" ],
+      "TimeMin": [ 12, 0 ],
+      "TimeMax": [ 12, 15 ],
+      "Conditions": "",
+      "Consequences": []
+    }
+  ]
+}

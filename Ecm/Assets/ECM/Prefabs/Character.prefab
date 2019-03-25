@@ -186,13 +186,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
+  isHighlighted: 0
   CharacterUi: {fileID: 223765114355082030, guid: bdb39624ed36f9147b48df6e525e0dda,
     type: 2}
+  spawnedUi: {fileID: 0}
   realName: Thomas
+  job: 0
   mood: 10
   physicalCondition: 1
   studious: 1
   social: 1
+  sqrDetectionRadius: 0
   toiletNeeds: 1
   foodNeeds: 1
   cafeineNeeds: 1
@@ -237,7 +241,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.3
   m_Speed: 4
-  m_Acceleration: 100
+  m_Acceleration: 10000
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 3

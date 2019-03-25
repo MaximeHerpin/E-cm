@@ -17,6 +17,7 @@ namespace Stories
 
         public override void OnEnter()
         {
+            base.OnEnter();
             Vector3 destinationPosition = target.transform.position;
             foreach (GameObject actor in actors)
             {
