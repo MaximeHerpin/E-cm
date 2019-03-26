@@ -27,6 +27,7 @@ namespace Stories
                     Debug.LogError(string.Format("{0} was asked to move but has no NavMeshAgent Component", actor.name));
                     return;
                 }
+                agent.stoppingDistance = 1f;
                 NavMeshPath path = new NavMeshPath();
                 agent.CalculatePath(destinationPosition, path);
                 agent.SetPath(path);

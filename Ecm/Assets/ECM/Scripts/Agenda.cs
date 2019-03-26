@@ -21,6 +21,7 @@ public class Agenda : ScriptableObject {
 
     public void RandomDay()
     {
+        string[] classes = { "Mathematics", "Quantum physics", "Managment", "LV1", "LV2" };
         GameObject[] rooms = GameObject.FindGameObjectsWithTag("room");
         List<AgendaEvent> dayEvents = new List<AgendaEvent>();
         bool earlyMorning = Random.value < .5f;
@@ -38,7 +39,7 @@ public class Agenda : ScriptableObject {
             if (Random.value > .1) // slight chance of not having a class
             {
                 GameObject location = rooms[Random.Range(0, rooms.Length - 1)]; // random classroom
-                AgendaEvent newEvent = new AgendaEvent(time, time + duration, "yolo", location.name);
+                AgendaEvent newEvent = new AgendaEvent(time, time + duration, classes[Random.Range(0, classes.Length)], location.name);
                 dayEvents.Add(newEvent);
             }
                 

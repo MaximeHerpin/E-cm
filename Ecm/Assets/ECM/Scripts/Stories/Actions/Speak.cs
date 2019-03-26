@@ -12,6 +12,7 @@ namespace Stories
         }
         public override void OnEnter() // vérifier que les acteurs existent
         {
+            base.OnEnter();
             string[] interlocutors = new string[actors.Length - 1];
             for (int i=0; i<actors.Length; i++)
             {

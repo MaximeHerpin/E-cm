@@ -138,6 +138,12 @@ namespace Stories
                     string reactionMessage = parameters[1];
                     action = new SeeAction(actors, target, reactionMessage);
                     break;
+                case "DefaultBehaviour":
+                    action = new DefaultBehaviourAction(actors);
+                    break;
+                case "Die":
+                    action = new DieAction(actors);
+                    break;
                 default:
                     Debug.LogError(string.Format("Action {0} does not exist", actionName));
                     break;

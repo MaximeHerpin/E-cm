@@ -20,11 +20,13 @@ public class AgendaInspector : Editor
 
     public override void OnInspectorGUI()
     {
+        EditorGUIUtility.fieldWidth = 1;
+        EditorGUIUtility.labelWidth = 35;
         Agenda ag = (Agenda)target;
-        if (ag.events == null)
+        if (ag.events == null && ag.eventList == null)
             return;
 
-        foreach(AgendaEvent ev in ag.events)
+        foreach(AgendaEvent ev in ag.eventList)
         {
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
             int h1 = ev.startTime.hours;
@@ -32,7 +34,16 @@ public class AgendaInspector : Editor
             int m1 = ev.startTime.minutes;
             int m2 = ev.endTime.minutes;
             EditorGUILayout.LabelField(string.Format("From {0:00}:{1:00} to {2:00}:{3:00}", h1, m1, h2, m2), EditorStyles.boldLabel);
-
+            EditorGUILayout.BeginHorizontal(GUILayout.ExpandWidth(false));
+            EditorGUIUtility.labelWidth = 35;
+            EditorGUILayout.IntField("From ", ev.startTime.hours);
+            EditorGUIUtility.labelWidth = 5;
+            EditorGUILayout.IntField(":",ev.startTime.minutes);
+            EditorGUIUtility.labelWidth = 20;
+            EditorGUILayout.IntField(" to ", ev.endTime.hours);
+            EditorGUIUtility.labelWidth = 5;
+            EditorGUILayout.IntField(":", ev.endTime.minutes);
+            EditorGUILayout.EndHorizontal();
             EditorGUILayout.LabelField("Description : " + ev.description);
             EditorGUILayout.LabelField("Location : " + ev.location.Replace('_', ' '));
             EditorGUILayout.EndVertical();

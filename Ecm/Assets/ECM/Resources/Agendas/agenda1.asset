@@ -14,37 +14,37 @@ MonoBehaviour:
   eventList:
   - startTime:
       hours: 8
-      minutes: 0
+      minutes: 30
     endTime:
       hours: 10
       minutes: 0
-    description: yolo
-    location: salle_220
+    description: LV2
+    location: salle_215
     classroom: {fileID: 0}
   - startTime:
       hours: 10
       minutes: 15
     endTime:
-      hours: 11
-      minutes: 45
-    description: yolo
-    location: salle_223
+      hours: 12
+      minutes: 15
+    description: LV1
+    location: salle_219
     classroom: {fileID: 0}
   - startTime:
-      hours: 13
-      minutes: 30
+      hours: 14
+      minutes: 0
     endTime:
       hours: 15
       minutes: 30
-    description: yolo
-    location: salle_223
+    description: Quantum physics
+    location: salle_218
     classroom: {fileID: 0}
   - startTime:
       hours: 15
       minutes: 45
     endTime:
       hours: 17
-      minutes: 45
-    description: yolo
-    location: salle_235
+      minutes: 15
+    description: LV2
+    location: salle_227
     classroom: {fileID: 0}

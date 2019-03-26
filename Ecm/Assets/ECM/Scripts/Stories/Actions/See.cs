@@ -18,6 +18,7 @@ namespace Stories
         }
         public override void OnEnter()
         {
+            base.OnEnter();
             hasSeen = false;
             characters = new Character[actors.Length];
             for (int i = 0; i < actors.Length; i ++)

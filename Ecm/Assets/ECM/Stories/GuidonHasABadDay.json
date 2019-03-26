@@ -1,0 +1,130 @@
+{
+  "Events": [
+    {
+      "Actors": [ "M.Guidon" ],
+      "Action": "LogEntry",
+      "Parameters": [ "I want to see that video of a cute cat, but there is no connection here !" ],
+      "TimeMin": [ 13, 40 ],
+      "TimeMax": [ 13, 45 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Guidon" ],
+      "Action": "Move",
+      "Parameters": [ "grand amphi butane stocks" ],
+      "TimeMin": [ 13, 45 ],
+      "TimeMax": [ 13, 50 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Guidon" ],
+      "Action": "See",
+      "Parameters": [ "romeo", "Saw a student near the new building, made him leave I can now wath those cat videos" ],
+      "TimeMin": [ 13, 45 ],
+      "TimeMax": [ 13, 50 ],
+      "Conditions": "ButaneValveOpen",
+      "Consequences": [ "" ]
+    },
+    {
+      "Actors": [ "romeo" ],
+      "Action": "LogEntry",
+      "Parameters": [ "was spotted by M.Guidon, I guess I'll just poison myself then" ],
+      "TimeMin": [ 13, 45 ],
+      "TimeMax": [ 13, 50 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Guidon" ],
+      "Action": "DefaultBehaviour",
+      "Parameters": [],
+      "TimeMin": [ 13, 45 ],
+      "TimeMax": [ 13, 50 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Braqueur" ],
+      "Action": "LogEntry",
+      "Parameters": [ "Received complaints of student asking why M.Guidon never reads mails" ],
+      "TimeMin": [ 17, 0 ],
+      "TimeMax": [ 17, 10 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Guidon", "M.Braqueur" ],
+      "Action": "Move",
+      "Parameters": [ "M.Braqueur_Desk" ],
+      "TimeMin": [ 17, 5 ],
+      "TimeMax": [ 17, 15 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Guidon", "M.Braqueur" ],
+      "Action": "Speak",
+      "Parameters": [],
+      "TimeMin": [ 17, 15 ],
+      "TimeMax": [ 17, 25 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Guidon" ],
+      "Action": "LogEntry",
+      "Parameters": [ "Damn those mails, 1 000 000 unread messages is not a lot, I don't see the problem" ],
+      "TimeMin": [ 17, 25 ],
+      "TimeMax": [ 17, 30 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Guidon" ],
+      "Action": "LogEntry",
+      "Parameters": [ "I will answer maybe one or two" ],
+      "TimeMin": [ 17, 25 ],
+      "TimeMax": [ 17, 30 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Guidon" ],
+      "Action": "LogEntry",
+      "Parameters": [ "Still no internet connection, I need to go outside, I will take that oportunity to smoke a bit" ],
+      "TimeMin": [ 17, 30 ],
+      "TimeMax": [ 17, 35 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Guidon" ],
+      "Action": "Move",
+      "Parameters": [ "grand amphi butane stocks" ],
+      "TimeMin": [ 17, 35 ],
+      "TimeMax": [ 17, 45 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Guidon" ],
+      "Action": "LogEntry",
+      "Parameters": [ "Light a match" ],
+      "TimeMin": [ 17, 35 ],
+      "TimeMax": [ 17, 45 ],
+      "Conditions": "",
+      "Consequences": [ "FlameAtGrandAmphi" ]
+    },
+    {
+      "Actors": [ "M.Guidon" ],
+      "Action": "Die",
+      "Parameters": [],
+      "TimeMin": [ 17, 35 ],
+      "TimeMax": [ 17, 45 ],
+      "Conditions": "BOOM",
+      "Consequences": [ ]
+    }
+  ]
+}

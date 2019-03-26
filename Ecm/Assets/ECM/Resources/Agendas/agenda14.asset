@@ -13,13 +13,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventList:
   - startTime:
-      hours: 8
-      minutes: 30
-    endTime:
       hours: 10
-      minutes: 0
-    description: yolo
-    location: amphi_2
+      minutes: 15
+    endTime:
+      hours: 11
+      minutes: 45
+    description: Mathematics
+    location: salle_227
     classroom: {fileID: 0}
   - startTime:
       hours: 13
@@ -27,15 +27,15 @@ MonoBehaviour:
     endTime:
       hours: 15
       minutes: 30
-    description: yolo
-    location: salle_226
+    description: Managment
+    location: salle_204
     classroom: {fileID: 0}
   - startTime:
       hours: 15
       minutes: 45
     endTime:
       hours: 17
-      minutes: 45
-    description: yolo
-    location: salle_223
+      minutes: 15
+    description: Quantum physics
+    location: salle_236
     classroom: {fileID: 0}
