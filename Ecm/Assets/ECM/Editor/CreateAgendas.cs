@@ -33,4 +33,10 @@ public class CreateAgendas : ScriptableWizard
         }
         AssetDatabase.SaveAssets();
     }
+
+    private void CreateAgendasNoCollisions(int count)
+    {
+        GameObject[] rooms = GameObject.FindGameObjectsWithTag("room");
+        
+    }
 }

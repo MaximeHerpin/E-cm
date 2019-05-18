@@ -14,30 +14,30 @@ MonoBehaviour:
   eventList:
   - startTime:
       hours: 8
-      minutes: 30
+      minutes: 0
     endTime:
       hours: 10
       minutes: 0
-    description: yolo
-    location: salle_206
+    description: Managment
+    location: salle_214
     classroom: {fileID: 0}
   - startTime:
       hours: 10
       minutes: 15
     endTime:
-      hours: 11
-      minutes: 45
-    description: yolo
-    location: amphi_2
+      hours: 12
+      minutes: 15
+    description: Managment
+    location: salle_223
     classroom: {fileID: 0}
   - startTime:
-      hours: 13
-      minutes: 30
+      hours: 14
+      minutes: 0
     endTime:
       hours: 15
       minutes: 30
-    description: yolo
-    location: salle_206
+    description: Managment
+    location: salle_221
     classroom: {fileID: 0}
   - startTime:
       hours: 15
@@ -45,6 +45,6 @@ MonoBehaviour:
     endTime:
       hours: 17
       minutes: 45
-    description: yolo
-    location: salle_200
+    description: LV1
+    location: salle_236
     classroom: {fileID: 0}

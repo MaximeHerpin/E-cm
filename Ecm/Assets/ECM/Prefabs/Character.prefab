@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 114104182620287706}
   - component: {fileID: 114957379782701178}
   - component: {fileID: 95216181967488248}
-  - component: {fileID: 114793619971188712}
   m_Layer: 9
   m_Name: Character
   m_TagString: Player
@@ -58,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1410513516815838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 106, y: -7, z: 140}
+  m_LocalPosition: {x: 108.742325, y: -4.621543, z: 141.41908}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4942938360822444}
@@ -186,11 +185,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6887e9f256974745aee564b707d3121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelected: 0
+  isHighlighted: 0
+  CharacterUi: {fileID: 223765114355082030, guid: bdb39624ed36f9147b48df6e525e0dda,
+    type: 2}
+  spawnedUi: {fileID: 0}
   realName: Thomas
+  job: 0
   mood: 10
   physicalCondition: 1
   studious: 1
   social: 1
+  sqrDetectionRadius: 0
   toiletNeeds: 1
   foodNeeds: 1
   cafeineNeeds: 1
@@ -198,31 +204,6 @@ MonoBehaviour:
   foodBuildup: 0
   cafeineBuildup: 0
   friends: []
---- !u!114 &114793619971188712
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1410513516815838}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad3c57e3646ba074d8d6ecc747ef505f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FSM: {fileID: 11400000, guid: e4382991435ac094fac9806aec58fef4, type: 2}
-  state:
-    name: 
-    transitions: []
-    actionType: 
-    rect:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 0
-      height: 0
-    actionIndex: 0
-  states: []
-  trigger: 
 --- !u!114 &114957379782701178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -260,9 +241,9 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.3
   m_Speed: 4
-  m_Acceleration: 100
+  m_Acceleration: 10000
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 1000
   m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

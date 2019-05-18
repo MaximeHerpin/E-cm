@@ -56,6 +56,7 @@ namespace Stories
             catch (ArgumentException)
             {
                 Debug.LogError(string.Format("Invalid Json file :{0}", Path.GetFileName(pathToJson)));
+                return null;
             }
 
             Story story = new Story(Jstory.Events.Length);
@@ -82,6 +83,8 @@ namespace Stories
             for (int i = 0; i < names.Length; i++)
             {
                 result[i] = GameObject.Find(names[i]);
+                if (result[i] == null)
+                    Debug.LogError(string.Format("GameObject {0} was not found, check spelling", names[i]));
             }
             return result;
         }
@@ -90,6 +93,7 @@ namespace Stories
         {
             EventAction action = null;
             float duration;
+            GameObject target;
             switch (actionName)
             {
                 case "Explode":
@@ -97,7 +101,15 @@ namespace Stories
                     break;
                 case "Move":
                     GameObject destination = GameObject.Find(parameters[0]);
+                    if (destination == null)
+                        Debug.LogError(string.Format("can't move to location, {0} is not Found", parameters[0]));
                     action = new MoveAction(actors, destination);
+                    break;
+                case "Interact":
+                    target = GameObject.Find(parameters[0]);
+                    if (target == null)
+                        Debug.LogError(string.Format("can't interact with object, {0} is not Found", parameters[0]));
+                    action = new InteractAction(actors, target);
                     break;
                 case "SetTimeSpeed":
                     int timeSpeed = 1;
@@ -106,15 +118,32 @@ namespace Stories
                     action = new SetTimeSpeedAction(timeSpeed);
                     break;
                 case "SlerpTransform":
-                    Transform target = GameObject.Find(parameters[0]).transform;
+                    Transform targetTransform = GameObject.Find(parameters[0]).transform;
                     duration = float.Parse(parameters[1], CultureInfo.InvariantCulture.NumberFormat);
-                    action = new SlerpTransformAction(actors, target, duration);
+                    action = new SlerpTransformAction(actors, targetTransform, duration);
                     break;
                 case "Wait":
                     duration = float.Parse(parameters[0], CultureInfo.InvariantCulture.NumberFormat);
                     action = new WaitAction(duration);
                     break;
-
+                case "LogEntry":
+                    string description = parameters[0];
+                    action = new DiaryEntryAction(actors, description);
+                    break;
+                case "Speak":
+                    action = new SpeakAction(actors);
+                    break;
+                case "See":
+                    target = GameObject.Find(parameters[0]);
+                    string reactionMessage = parameters[1];
+                    action = new SeeAction(actors, target, reactionMessage);
+                    break;
+                case "DefaultBehaviour":
+                    action = new DefaultBehaviourAction(actors);
+                    break;
+                case "Die":
+                    action = new DieAction(actors);
+                    break;
                 default:
                     Debug.LogError(string.Format("Action {0} does not exist", actionName));
                     break;
@@ -123,6 +152,41 @@ namespace Stories
         }
 
     }
+}
 
-    
+public static class JsonNamesConverter
+{
+    public static JsonNames ConvertNames(string path)
+    {
+        JsonNames names = null;
+        string dataAsJson = File.ReadAllText(path);
+        try
+        {
+            names = JsonUtility.FromJson<JsonNames>(dataAsJson);
+        }
+        catch (ArgumentException)
+        {
+            Debug.LogError(string.Format("Invalid Json file :{0}", Path.GetFileName(path)));
+        }
+        return names;
+    }
+}
+
+public class JsonNames
+{
+    public string[] males;
+    public string[] females;
+    private int malesIndex = -1;
+    private int femalesIndex = -1;
+
+    public string GetNextMale()
+    {
+        malesIndex++;
+        return males[malesIndex];
+    }
+    public string GetNextFemale()
+    {
+        femalesIndex++;
+        return females[femalesIndex];
+    }
 }

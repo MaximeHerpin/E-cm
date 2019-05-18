@@ -18,17 +18,17 @@ MonoBehaviour:
     endTime:
       hours: 10
       minutes: 0
-    description: yolo
-    location: salle_230
+    description: LV2
+    location: salle_211
     classroom: {fileID: 0}
   - startTime:
       hours: 10
       minutes: 15
     endTime:
-      hours: 11
-      minutes: 45
-    description: yolo
-    location: salle_221
+      hours: 12
+      minutes: 15
+    description: Managment
+    location: salle_232
     classroom: {fileID: 0}
   - startTime:
       hours: 14
@@ -36,15 +36,15 @@ MonoBehaviour:
     endTime:
       hours: 15
       minutes: 30
-    description: yolo
-    location: salle_206
+    description: Mathematics
+    location: salle_235
     classroom: {fileID: 0}
   - startTime:
       hours: 15
       minutes: 45
     endTime:
       hours: 17
-      minutes: 45
-    description: yolo
-    location: salle_235
+      minutes: 15
+    description: Mathematics
+    location: salle_227
     classroom: {fileID: 0}

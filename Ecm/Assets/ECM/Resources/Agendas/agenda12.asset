@@ -18,8 +18,8 @@ MonoBehaviour:
     endTime:
       hours: 10
       minutes: 0
-    description: yolo
-    location: salle_208
+    description: Quantum physics
+    location: amphi_2
     classroom: {fileID: 0}
   - startTime:
       hours: 10
@@ -27,8 +27,8 @@ MonoBehaviour:
     endTime:
       hours: 12
       minutes: 15
-    description: yolo
-    location: salle_207
+    description: Managment
+    location: salle_214
     classroom: {fileID: 0}
   - startTime:
       hours: 13
@@ -36,8 +36,8 @@ MonoBehaviour:
     endTime:
       hours: 15
       minutes: 30
-    description: yolo
-    location: salle_230
+    description: Quantum physics
+    location: salle_217
     classroom: {fileID: 0}
   - startTime:
       hours: 15
@@ -45,6 +45,6 @@ MonoBehaviour:
     endTime:
       hours: 17
       minutes: 45
-    description: yolo
-    location: salle_209
+    description: Managment
+    location: salle_223
     classroom: {fileID: 0}

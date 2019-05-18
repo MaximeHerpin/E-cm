@@ -8,7 +8,7 @@ public class ClassBreak : StateMachineBehaviour {
     Character character;
     AgendaComponent agenda;
     Animator anim;
-    NavMeshAgent nav;
+    NavMeshAgent agent;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -16,9 +16,10 @@ public class ClassBreak : StateMachineBehaviour {
         character = animator.gameObject.GetComponent<Character>();
         agenda = animator.GetComponent<AgendaComponent>();
         anim = animator;
-        nav = animator.gameObject.GetComponent<NavMeshAgent>();
+        agent = animator.gameObject.GetComponent<NavMeshAgent>();
 
-        TimeManager.instance.OnQuarterUpdate += CheckIfBreakIsOver;
+        //TimeManager.instance.OnQuarterUpdate += CheckIfBreakIsOver;
+        TimeManager.instance.OnQuarterUpdate.AddListener(CheckIfBreakIsOver);
         if (character.NeedsToilet())
         {
             animator.SetTrigger("Toilet");
@@ -40,10 +41,12 @@ public class ClassBreak : StateMachineBehaviour {
             animator.SetInteger("NeedId", 2);
             return;
         }
-
-        Vector3 socialPlace = FindClosest(GameObject.FindGameObjectsWithTag("SocialPlace"), animator.transform.position).GetComponent<ClassRoom>().GetNextPosition();
-        nav.SetDestination(socialPlace);
-        //nav.stoppingDistance = 8;
+        GameObject socialPlace = FindClosest(GameObject.FindGameObjectsWithTag("SocialPlace"), animator.transform.position);
+        Vector3 destination = socialPlace.GetComponent<ClassRoom>().GetNextPosition();
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(destination, path);
+        agent.SetPath(path);
+        character.AddDiaryEntry(string.Format("went to {0} for a nice break", socialPlace.name));
         if (character.social > .5f)
             animator.SetTrigger("Socialize");
     }
@@ -84,7 +87,8 @@ public class ClassBreak : StateMachineBehaviour {
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        TimeManager.instance.OnQuarterUpdate -= CheckIfBreakIsOver;
+        //TimeManager.instance.OnQuarterUpdate -= CheckIfBreakIsOver;
+        TimeManager.instance.OnQuarterUpdate.RemoveListener(CheckIfBreakIsOver);
     }
 
     private GameObject FindClosest(GameObject[] targets, Vector3 position)

@@ -1,0 +1,130 @@
+{
+  "Events": [
+    {
+      "Actors": [ "juliette" ],
+      "Action": "Move",
+      "Parameters": [ "Gym" ],
+      "TimeMin": [ 10, 0 ],
+      "TimeMax": [ 11, 10 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "juliette" ],
+      "Action": "LogEntry",
+      "Parameters": [ "exerciced at the gym" ],
+      "TimeMin": [ 10, 0 ],
+      "TimeMax": [ 11, 15 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "juliette" ],
+      "Action": "See",
+      "Parameters": [ "M.Piperez", "Saw M.Piperez bench some impressive weights, what a strong man !" ],
+      "TimeMin": [ 10, 0 ],
+      "TimeMax": [ 11, 20 ],
+      "Conditions": "PiperezIsStrong",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "juliette" ],
+      "Action": "LogEntry",
+      "Parameters": [ "My romeo isn't that strong" ],
+      "TimeMin": [ 10, 0 ],
+      "TimeMax": [ 11, 20 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "juliette", "romeo" ],
+      "Action": "Move",
+      "Parameters": [ "Bench" ],
+      "TimeMin": [ 12, 0 ],
+      "TimeMax": [ 12, 10 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "juliette", "romeo" ],
+      "Action": "Speak",
+      "Parameters": [],
+      "TimeMin": [ 12, 0 ],
+      "TimeMax": [ 12, 10 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "romeo" ],
+      "Action": "LogEntry",
+      "Parameters": [ "Juliette don't love me anymore, she thinks I'm not manly enough !!!" ],
+      "TimeMin": [ 12, 0 ],
+      "TimeMax": [ 12, 15 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "romeo" ],
+      "Action": "LogEntry",
+      "Parameters": [ "I must become the manliest to win her back" ],
+      "TimeMin": [ 12, 0 ],
+      "TimeMax": [ 12, 15 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "romeo" ],
+      "Action": "Move",
+      "Parameters": [ "computer room" ],
+      "TimeMin": [ 12, 0 ],
+      "TimeMax": [ 12, 15 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "romeo" ],
+      "Action": "Interact",
+      "Parameters": [ "computer room computer" ],
+      "TimeMin": [ 12, 0 ],
+      "TimeMax": [ 12, 15 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "romeo" ],
+      "Action": "LogEntry",
+      "Parameters": [ "someone on the internet says that breathing butane increases strength" ],
+      "TimeMin": [ 13, 0 ],
+      "TimeMax": [ 13, 30 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "romeo" ],
+      "Action": "LogEntry",
+      "Parameters": [ "There is butane at grand amphi !" ],
+      "TimeMin": [ 13, 20 ],
+      "TimeMax": [ 13, 30 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "romeo" ],
+      "Action": "Move",
+      "Parameters": [ "grand amphi butane stocks" ],
+      "TimeMin": [ 13, 20 ],
+      "TimeMax": [ 13, 30 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "romeo" ],
+      "Action": "Interact",
+      "Parameters": [ "grand amphi butane stocks" ],
+      "TimeMin": [ 13, 20 ],
+      "TimeMax": [ 13, 40 ],
+      "Conditions": "",
+      "Consequences": ["ButaneValveOpen"]
+    }
+  ]
+}

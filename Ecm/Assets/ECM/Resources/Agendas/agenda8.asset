@@ -18,33 +18,24 @@ MonoBehaviour:
     endTime:
       hours: 10
       minutes: 0
-    description: yolo
-    location: amphi_1
+    description: Quantum physics
+    location: salle_232
     classroom: {fileID: 0}
   - startTime:
-      hours: 10
-      minutes: 15
-    endTime:
-      hours: 12
-      minutes: 15
-    description: yolo
-    location: salle_227
-    classroom: {fileID: 0}
-  - startTime:
-      hours: 13
-      minutes: 30
+      hours: 14
+      minutes: 0
     endTime:
       hours: 15
       minutes: 30
-    description: yolo
-    location: salle_225
+    description: Quantum physics
+    location: salle_214
     classroom: {fileID: 0}
   - startTime:
       hours: 15
       minutes: 45
     endTime:
       hours: 17
-      minutes: 15
-    description: yolo
-    location: salle_205
+      minutes: 45
+    description: LV1
+    location: salle_201
     classroom: {fileID: 0}

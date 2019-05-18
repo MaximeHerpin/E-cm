@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class CharacterManager : MonoBehaviour {
@@ -10,6 +11,7 @@ public class CharacterManager : MonoBehaviour {
     public float friendshipThreshold = .5f;
     public GameObject characterPrefab;
     public SpawnPoint[] spawnPoints;
+    public string names_path;
 
     private void Awake()
     {
@@ -26,13 +28,15 @@ public class CharacterManager : MonoBehaviour {
 
     public void SpawnCharacters()
     {
+        string path_to_json = Path.Combine(Application.dataPath, names_path);
+        JsonNames names = JsonNamesConverter.ConvertNames(path_to_json);
         foreach (SpawnPoint point in spawnPoints)
         {
             point.UpdatePoints();
             foreach (Vector3 pos in point.points)
             {
                 Character character = Instantiate(characterPrefab, pos, Quaternion.identity).GetComponent<Character>();
-                character.RandomizeCharacter();
+                character.RandomizeCharacter(Random.value > 0.5f ? names.GetNextMale() : names.GetNextFemale());
             }
         }
     

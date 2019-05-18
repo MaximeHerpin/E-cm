@@ -1,0 +1,148 @@
+{
+  "Events": [
+    {
+      "Actors": [ "M.Braqueur" ],
+      "Action": "LogEntry",
+      "Parameters": [ "I can't bare with this fool anymore, let's get rid of him !!!" ],
+      "TimeMin": [ 8, 30 ],
+      "TimeMax": [ 8, 35 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Braqueur" ],
+      "Action": "Move",
+      "Parameters": [ "Coffee_plot_1" ],
+      "TimeMin": [ 8, 35 ],
+      "TimeMax": [ 9, 35 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Braqueur" ],
+      "Action": "LogEntry",
+      "Parameters": [ "Nefariously Made Coffee" ],
+      "TimeMin": [ 8, 35 ],
+      "TimeMax": [ 9, 50 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Braqueur" ],
+      "Action": "Move",
+      "Parameters": [ "M.Braqueur_Desk" ],
+      "TimeMin": [ 8, 35 ],
+      "TimeMax": [ 9, 55 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Braqueur" ],
+      "Action": "Interact",
+      "Parameters": [ "Suspicious blue cristals" ],
+      "TimeMin": [ 9, 0 ],
+      "TimeMax": [ 10, 0 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Braqueur", "M.Piperez" ],
+      "Action": "Move",
+      "Parameters": [ "M.Piperez_Desk" ],
+      "TimeMin": [ 9, 30 ],
+      "TimeMax": [ 10, 5 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Braqueur", "M.Piperez" ],
+      "Action": "Speak",
+      "Parameters": [],
+      "TimeMin": [ 9, 31 ],
+      "TimeMax": [ 10, 15 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Braqueur" ],
+      "Action": "LogEntry",
+      "Parameters": [ "Gave a cup of suspicious coffee to M.Piperez" ],
+      "TimeMin": [ 9, 35 ],
+      "TimeMax": [ 10, 20 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Piperez" ],
+      "Action": "LogEntry",
+      "Parameters": [ "Had a nice cup of cofee" ],
+      "TimeMin": [ 9, 40 ],
+      "TimeMax": [ 10, 30 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Piperez" ],
+      "Action": "LogEntry",
+      "Parameters": [ "Felt a bit weird" ],
+      "TimeMin": [ 10, 0 ],
+      "TimeMax": [ 11, 0 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Piperez" ],
+      "Action": "LogEntry",
+      "Parameters": [ "counted to 10 000 for no reasons" ],
+      "TimeMin": [ 10, 1 ],
+      "TimeMax": [ 11, 1 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Piperez" ],
+      "Action": "LogEntry",
+      "Parameters": [ "How can mirrors be real if our eyes aren't real ?" ],
+      "TimeMin": [ 10, 2 ],
+      "TimeMax": [ 11, 2 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Piperez" ],
+      "Action": "LogEntry",
+      "Parameters": [ "Felt really strong" ],
+      "TimeMin": [ 10, 5 ],
+      "TimeMax": [ 11, 5 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Piperez" ],
+      "Action": "Move",
+      "Parameters": [ "Gym" ],
+      "TimeMin": [ 10, 6 ],
+      "TimeMax": [ 11, 6 ],
+      "Conditions": "",
+      "Consequences": []
+    },
+    {
+      "Actors": [ "M.Piperez" ],
+      "Action": "Interact",
+      "Parameters": [ "Musculation weight" ],
+      "TimeMin": [ 10, 6 ],
+      "TimeMax": [ 11, 10 ],
+      "Conditions": "",
+      "Consequences": ["PiperezIsStrong"]
+    },
+    {
+      "Actors": [ "M.Piperez" ],
+      "Action": "Move",
+      "Parameters": [ "M.Piperez_Desk" ],
+      "TimeMin": [ 11, 10 ],
+      "TimeMax": [ 11, 15 ],
+      "Conditions": "",
+      "Consequences": []
+    }
+  ]
+}

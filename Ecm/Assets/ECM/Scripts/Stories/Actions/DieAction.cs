@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Stories
 {
-    public class Die : EventAction
+    public class DieAction : EventAction
     {
-        public Die(GameObject[] actors) : base(actors)
+        public DieAction(GameObject[] actors) : base(actors)
         {
 
         }
@@ -16,7 +16,7 @@ namespace Stories
         }
         public override void OnUpdate()
         {
-
+            status = ActionStatus.Exit;
         }
         public override void OnExit()
         {

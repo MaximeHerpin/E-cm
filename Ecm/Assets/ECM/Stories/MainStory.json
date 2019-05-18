@@ -33,10 +33,10 @@
     {
       "Actors": [ "NouvelAmphi" ],
       "Action": "Explode",
-      "TimeMin": [ 18, 0 ],
-      "TimeMax": [ 19, 5 ],
-      "Conditions": "",
-      "Consequences": []
+      "TimeMin": [ 17, 30 ],
+      "TimeMax": [ 19, 0 ],
+      "Conditions": "ButaneValveOpen AND FlameAtGrandAmphi",
+      "Consequences": ["BOOM"]
     }
   ]
 }
