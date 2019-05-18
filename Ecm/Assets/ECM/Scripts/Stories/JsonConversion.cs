@@ -9,12 +9,12 @@ namespace Stories
 {
 
     [System.Serializable]
-    public class JsonStory
+    public class JsonStory // on dit quelle est la forme d'une histoire en JSon
     {
-        public EventEntry[] Events;
+        public EventEntry[] Events; // elle contient plusieurs évènements, c'est une liste d'évènements
 
         [System.Serializable]
-        public struct EventEntry
+        public struct EventEntry // on dit quelle est la structure d'un évènement
         {
             public string[] Actors;
             public string Action;
@@ -29,13 +29,13 @@ namespace Stories
 
     public static class JsonConverter
     {
-        public static string pathToJsonFolder;
+        public static string pathToJsonFolder; // adresse du dossier contenant les fichiers JSon des histoires
 
         public static Story[] GetAllStories()
         {
-            DirectoryInfo dir = new DirectoryInfo(pathToJsonFolder);
-            FileInfo[] info = dir.GetFiles("*.json");
-            Story[] stories = new Story[info.Length];
+            DirectoryInfo dir = new DirectoryInfo(pathToJsonFolder); // on va à l'adresse requise
+            FileInfo[] info = dir.GetFiles("*.json"); // liste des n JSon
+            Story[] stories = new Story[info.Length]; //tableau prêt à recevoir les n histoires
             int i = 0;
             foreach (FileInfo f in info)
             {
@@ -45,7 +45,7 @@ namespace Stories
             return stories;
         }
 
-        public static Story JsonToStory(string pathToJson)
+        public static Story JsonToStory(string pathToJson) // fonction retournant une classe Story à partir d'un fichier Json
         {
             JsonStory Jstory = null;
             string dataAsJson = File.ReadAllText(pathToJson);
@@ -76,7 +76,7 @@ namespace Stories
             return story;
         }
         
-        private static GameObject[] GetObjectsFromNames(string[] names)
+        private static GameObject[] GetObjectsFromNames(string[] names) // retrouve un GameObject à partir de son nom (écrit en chaîne de caractères)
         {
             GameObject[] result = new GameObject[names.Length];
             for (int i = 0; i < names.Length; i++)
@@ -86,7 +86,7 @@ namespace Stories
             return result;
         }
 
-        private static EventAction GetAction(string actionName, GameObject[] actors, string[] parameters)
+        private static EventAction GetAction(string actionName, GameObject[] actors, string[] parameters) // cas par cas pour les actions - elles ont différents types de paramètres
         {
             EventAction action = null;
             float duration;

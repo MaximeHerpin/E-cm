@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimeManager : MonoBehaviour {
+public class TimeManager : MonoBehaviour { // La méthode Update() de Monobehaviour est appelée à chaque frame.
 
     public static TimeManager instance;
     public TimeOfDay timeOfDay;
